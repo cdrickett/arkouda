@@ -66,7 +66,8 @@ export GASNET_MASTERIP=127.0.0.1
 # Set these to help with oversubscription...
 export QT_AFFINITY=no
 export CHPL_QTHREAD_ENABLE_OVERSUBSCRIPTION=1
-export CHPL_LLVM=llvm
+export CHPL_LLVM=llvm #the letters ll, not the numbers 11, l and 1 look
+similar in github readme
 cd $CHPL_HOME
 make
 # you can also install these other packages with brew
