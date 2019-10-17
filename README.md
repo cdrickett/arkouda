@@ -1,5 +1,13 @@
 # Arkouda: NumPy-like arrays at massive scale backed by Chapel.
-## _REMEMBER_: this is not yet open source software... we are currently seeking approval to open source Arkouda
+## _NOTE_: We have approval to open source Arkouda under the MIT license.
+I would like to see several things happen before we move to an open repo:
+ * better python documentation
+ * better setup and run documentation
+ * better dependency documentation
+ * do something better with Jupyter notebooks in the current repo
+ * add MIT lisence stuff
+ * document contributing information
+ * formulate clear process for PRs and accepting contributions
 
 ## Abstract:
 Exploratory data analysis (EDA) is a prerequisite for all data
@@ -44,19 +52,33 @@ interactive session.
 
 ## Requirements:
  * requires chapel 1.20.0 with the --legacy-classes flag
- * requires llvm version of Chapel parser to support HDF5 I/O
  * requires zeromq version >= 4.2.5, tested with 4.2.5 and 4.3.1
  * requires python 3.6 or greater
-
+ * requires numpy
+ * requires sphinx-doc to build python documentation
+ 
+### It should be simple to get things going on a mac
 ```bash
-#it should be simple to get things going on a mac
-#can't use brew install chapel anymore
-#need to build with export CHPL_LLVM=llvm
-#on my mac build chapel in my home directory with these settings...
-#I don't understand them all but they seem to work
+brew install chapel
+# you can also install these other packages with brew
+brew install python3
+brew install zeromq
+brew install sphinx-doc
+# and pip install the numpy packages
+pip3 install numpy
+# these packages are nice but not a requirement
+pip3 install pandas
+pip3 install jupyter
+```
+
+### If you need to build Chapel from scratch here is what I use
+```bash
+# on my mac build chapel in my home directory with these settings...
+# I don't understand them all but they seem to work
 export CHPL_HOME=~/chapel/chapel-1.20.0
 source $CHPL_HOME/util/setchplenv.bash
 export CHPL_COMM=gasnet
+export CHPL_COMM_SUBSTRATE=smp
 export CHPL_GASNET_CFG_OPTIONS=--disable-ibv
 export CHPL_TARGET_CPU=native
 export GASNET_SPAWNFN=L
@@ -66,15 +88,12 @@ export GASNET_MASTERIP=127.0.0.1
 # Set these to help with oversubscription...
 export QT_AFFINITY=no
 export CHPL_QTHREAD_ENABLE_OVERSUBSCRIPTION=1
+<<<<<<< HEAD
 export CHPL_LLVM=llvm #the letters ll, not the numbers 11, l and 1 look similar in GitHub README.md
+=======
+>>>>>>> bac26cb8bce5b22a67872c723c6511a973a8ea29
 cd $CHPL_HOME
 make
-# you can also install these other packages with brew
-brew install python3
-brew install zeromq
-pip3 install numpy
-pip3 install pandas
-pip3 install jupyter
 ```
 
 ## Building Arkouda
@@ -97,16 +116,30 @@ path.
 
 [Anaconda]: https://www.anaconda.com/distribution/
 
+## Building the Arkouda documentation
+Make sure you installed the sphinx-doc package
+
+Run `make doc`, this build both the Arkouda python documentation and the Chapel server documentation
+
+The output is currently in subdirectories of the `arkouda/doc`
+```
+arkouda/doc/python # python frontend documentation
+arkouda/doc/server # chapel backend server documentation 
+```
+
 ## Running arkouda_server
 
  * startup the arkouda_server
  * defaults to port 5555
 ```bash
+# if you buile a single-locale version
+./arkouda_server
+# if you built a multi-locale version
 ./arkouda_server -nl 1
 ```
  * config var on the commandline
- * --v=true/false to turn on/off verbose messages from server
- * --ServerPort=5555
+ * ```--v=true/false``` to turn on/off verbose messages from server
+ * ```--ServerPort=5555```
  * or you could run it this way if you don't want as many messages
 and a different port to be used
 ```bash
