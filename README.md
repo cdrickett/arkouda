@@ -1,13 +1,10 @@
-# Arkouda: NumPy-like arrays at massive scale backed by Chapel.
-## _NOTE_: We have approval to open source Arkouda under the MIT license.
-I would like to see several things happen before we move to an open repo:
- * better python documentation
- * better setup and run documentation
- * better dependency documentation
- * do something better with Jupyter notebooks in the current repo
- * add MIT lisence stuff
- * document contributing information
- * formulate clear process for PRs and accepting contributions
+# Arkouda (αρκούδα): NumPy-like arrays at massive scale backed by Chapel.
+## _NOTE_: Arkouda is under the MIT license.
+
+## Talks on Arkouda
+[Mike Merrill's CHIUW 2019 talk](https://chapel-lang.org/CHIUW/2019/Merrill.pdf)
+
+[Bill Reus' CLSAC 2019 talk](http://www.clsac.org/uploads/5/0/6/3/50633811/2019-reus-arkuda.pdf)
 
 ## Abstract:
 Exploratory data analysis (EDA) is a prerequisite for all data
@@ -63,7 +60,6 @@ brew install chapel
 # you can also install these other packages with brew
 brew install python3
 brew install zeromq
-brew install sphinx-doc
 # and pip install the numpy packages
 pip3 install numpy
 # these packages are nice but not a requirement
