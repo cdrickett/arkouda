@@ -1,0 +1,2806 @@
+arkouda server version = 0.0.9-2019-09-23
+zeromq version = (4, 3, 2)
+makeDistDom.type = BlockDom(1,int(64),false,unmanaged DefaultDist)
+server listening on MacBook-Pro-17.local:5555
+reqMsg: connect
+>>> connect
+repMsg:connected to arkouda server tcp://*:5555
+<<< connect took 0.000144sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_1
+alloc time = 0.000158sec
+compute time = 2.8e-05sec
+aD = {0..9} 
+repMsg:created id_1 int64 10 1 (10) 8
+<<< arange took 0.000482sec
+reqMsg: array <binary-data>
+>>> array
+aD = {0..9} 
+repMsg:created id_2 float64 10 1 (10) 8
+<<< array took 0.000201sec
+reqMsg: binopvv + id_1 id_2
+>>> binopvv
+binopvv + id_1 id_2 : id_3
+aD = {0..9} 
+repMsg:created id_3 float64 10 1 (10) 8
+<<< binopvv took 0.000262sec
+reqMsg: tondarray id_3
+>>> tondarray
+repMsg: <binary-data>
+<<< tondarray took 7.5e-05sec
+reqMsg: create float64 10
+>>> create
+create float64 10 : id_4
+aD = {0..9} 
+repMsg:created id_4 float64 10 1 (10) 8
+<<< create took 0.000178sec
+reqMsg: set id_4 float64 1.00000000000000000
+>>> set
+set id_4 to 1.000000e+00
+repMsg:set id_4 to 1.000000e+00
+<<< set took 0.000195sec
+reqMsg: delete id_1
+>>> delete
+delete id_1
+deinit SymEntry
+repMsg:deleted id_1
+<<< delete took 0.00014sec
+reqMsg: [slice]=val id_4 0 10 2 float64 0.00000000000000000
+>>> [slice]=val
+[slice]=val id_4 0 10 2 float64 0.00000000000000000
+repMsg:setSliceIndexToValue success
+<<< [slice]=val took 0.000248sec
+reqMsg: str id_4 100
+>>> str
+str id_4 100
+repMsg:[0.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00]
+<<< str took 0.000181sec
+reqMsg: create float64 10
+>>> create
+create float64 10 : id_5
+aD = {0..9} 
+repMsg:created id_5 float64 10 1 (10) 8
+<<< create took 0.000121sec
+reqMsg: set id_5 float64 1.00000000000000000
+>>> set
+set id_5 to 1.000000e+00
+repMsg:set id_5 to 1.000000e+00
+<<< set took 0.000106sec
+reqMsg: delete id_4
+>>> delete
+delete id_4
+deinit SymEntry
+repMsg:deleted id_4
+<<< delete took 0.000142sec
+reqMsg: create float64 5
+>>> create
+create float64 5 : id_6
+aD = {0..4} 
+repMsg:created id_6 float64 5 1 (5) 8
+<<< create took 0.000142sec
+reqMsg: [slice]=pdarray id_5 1 10 2 id_6
+>>> [slice]=pdarray
+[slice]=pdarray id_5 1 10 2 id_6
+repMsg:setSliceIndexToPdarray success
+<<< [slice]=pdarray took 0.00021sec
+reqMsg: str id_5 100
+>>> str
+str id_5 100
+repMsg:[1.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 0.000000e+00]
+<<< str took 0.000141sec
+reqMsg: create float64 10
+>>> create
+create float64 10 : id_7
+aD = {0..9} 
+repMsg:created id_7 float64 10 1 (10) 8
+<<< create took 0.000171sec
+reqMsg: delete id_5
+>>> delete
+delete id_5
+deinit SymEntry
+repMsg:deleted id_5
+<<< delete took 9e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_8
+alloc time = 2.3e-05sec
+compute time = 2.2e-05sec
+aD = {0..9} 
+repMsg:created id_8 int64 10 1 (10) 8
+<<< arange took 0.000251sec
+reqMsg: delete id_6
+>>> delete
+delete id_6
+deinit SymEntry
+repMsg:deleted id_6
+<<< delete took 9.3e-05sec
+reqMsg: [slice]=pdarray id_7 0 10 1 id_8
+>>> [slice]=pdarray
+[slice]=pdarray id_7 0 10 1 id_8
+repMsg:setSliceIndexToPdarray success
+<<< [slice]=pdarray took 0.000107sec
+reqMsg: str id_8 100
+>>> str
+str id_8 100
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000143sec
+reqMsg: str id_7 100
+>>> str
+str id_7 100
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00 5.000000e+00 6.000000e+00 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 0.000175sec
+reqMsg: randint 0 2 10 bool
+>>> randint
+randint 0 2 10 bool : id_9
+alloc time = 5e-05sec
+compute time = 2e-05sec
+aD = {0..9} 
+repMsg:created id_9 bool 10 1 (10) 1
+<<< randint took 0.000286sec
+reqMsg: delete id_7
+>>> delete
+delete id_7
+deinit SymEntry
+repMsg:deleted id_7
+<<< delete took 8.8e-05sec
+reqMsg: [int]=val id_9 1 bool True
+>>> [int]=val
+[int]=val id_9 1 bool True
+repMsg:setIntIndexToValue success
+<<< [int]=val took 0.000152sec
+reqMsg: [int]=val id_9 2 bool True
+>>> [int]=val
+[int]=val id_9 2 bool True
+repMsg:setIntIndexToValue success
+<<< [int]=val took 9.6e-05sec
+reqMsg: str id_9 100
+>>> str
+str id_9 100
+repMsg:[False True True False True False False False True False]
+<<< str took 0.000124sec
+reqMsg: create int64 10
+>>> create
+create int64 10 : id_10
+aD = {0..9} 
+repMsg:created id_10 int64 10 1 (10) 8
+<<< create took 0.000104sec
+reqMsg: set id_10 int64 1
+>>> set
+set id_10 to 1
+repMsg:set id_10 to 1
+<<< set took 9.5e-05sec
+reqMsg: delete id_9
+>>> delete
+delete id_9
+deinit SymEntry
+repMsg:deleted id_9
+<<< delete took 8.9e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_11
+alloc time = 3e-05sec
+compute time = 9e-06sec
+aD = {0..9} 
+repMsg:created id_11 int64 10 1 (10) 8
+<<< arange took 0.000182sec
+reqMsg: [slice] id_11 0 10 2
+>>> [slice]
+[slice] id_11 0 10 2 : 0..9 by 2 , id_12
+aD = {0..4} 
+repMsg:created id_12 int64 5 1 (5) 8
+<<< [slice] took 0.000232sec
+reqMsg: delete id_11
+>>> delete
+delete id_11
+deinit SymEntry
+repMsg:deleted id_11
+<<< delete took 7.8e-05sec
+reqMsg: [pdarray]=val id_10 id_12 int64 10
+>>> [pdarray]=val
+[pdarray]=val id_10 id_12 int64 10
+repMsg:setPdarrayIndexToValue success
+<<< [pdarray]=val took 0.0001sec
+reqMsg: str id_10 100
+>>> str
+str id_10 100
+repMsg:[10 1 10 1 10 1 10 1 10 1]
+<<< str took 0.000136sec
+reqMsg: create float64 10
+>>> create
+create float64 10 : id_13
+aD = {0..9} 
+repMsg:created id_13 float64 10 1 (10) 8
+<<< create took 0.000139sec
+reqMsg: set id_13 float64 1.00000000000000000
+>>> set
+set id_13 to 1.000000e+00
+repMsg:set id_13 to 1.000000e+00
+<<< set took 0.000113sec
+reqMsg: delete id_10
+>>> delete
+delete id_10
+deinit SymEntry
+repMsg:deleted id_10
+<<< delete took 7.6e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_14
+alloc time = 2.6e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_14 int64 10 1 (10) 8
+<<< arange took 0.00019sec
+reqMsg: [slice] id_14 0 10 2
+>>> [slice]
+[slice] id_14 0 10 2 : 0..9 by 2 , id_15
+aD = {0..4} 
+repMsg:created id_15 int64 5 1 (5) 8
+<<< [slice] took 0.000186sec
+reqMsg: delete id_14
+>>> delete
+delete id_14
+deinit SymEntry
+repMsg:deleted id_14
+<<< delete took 7e-05sec
+reqMsg: delete id_12
+>>> delete
+delete id_12
+deinit SymEntry
+repMsg:deleted id_12
+<<< delete took 8.9e-05sec
+reqMsg: [pdarray]=val id_13 id_15 float64 10.00000000000000000
+>>> [pdarray]=val
+[pdarray]=val id_13 id_15 float64 10.00000000000000000
+repMsg:setPdarrayIndexToValue success
+<<< [pdarray]=val took 0.000151sec
+reqMsg: str id_13 100
+>>> str
+str id_13 100
+repMsg:[1.000000e+01 1.000000e+00 1.000000e+01 1.000000e+00 1.000000e+01 1.000000e+00 1.000000e+01 1.000000e+00 1.000000e+01 1.000000e+00]
+<<< str took 0.000181sec
+reqMsg: create bool 10
+>>> create
+create bool 10 : id_16
+aD = {0..9} 
+repMsg:created id_16 bool 10 1 (10) 1
+<<< create took 0.000106sec
+reqMsg: set id_16 bool True
+>>> set
+set id_16 to true
+repMsg:set id_16 to true
+<<< set took 0.000117sec
+reqMsg: delete id_13
+>>> delete
+delete id_13
+deinit SymEntry
+repMsg:deleted id_13
+<<< delete took 6.2e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_17
+alloc time = 3e-05sec
+compute time = 5e-06sec
+aD = {0..9} 
+repMsg:created id_17 int64 10 1 (10) 8
+<<< arange took 0.00019sec
+reqMsg: [slice] id_17 0 10 2
+>>> [slice]
+[slice] id_17 0 10 2 : 0..9 by 2 , id_18
+aD = {0..4} 
+repMsg:created id_18 int64 5 1 (5) 8
+<<< [slice] took 0.000177sec
+reqMsg: delete id_17
+>>> delete
+delete id_17
+deinit SymEntry
+repMsg:deleted id_17
+<<< delete took 6.7e-05sec
+reqMsg: delete id_15
+>>> delete
+delete id_15
+deinit SymEntry
+repMsg:deleted id_15
+<<< delete took 9e-05sec
+reqMsg: [pdarray]=val id_16 id_18 bool False
+>>> [pdarray]=val
+[pdarray]=val id_16 id_18 bool False
+repMsg:setPdarrayIndexToValue success
+<<< [pdarray]=val took 0.000122sec
+reqMsg: str id_16 100
+>>> str
+str id_16 100
+repMsg:[False True False True False True False True False True]
+<<< str took 0.000119sec
+reqMsg: create bool 10
+>>> create
+create bool 10 : id_19
+aD = {0..9} 
+repMsg:created id_19 bool 10 1 (10) 1
+<<< create took 0.000115sec
+reqMsg: set id_19 bool True
+>>> set
+set id_19 to true
+repMsg:set id_19 to true
+<<< set took 6.2e-05sec
+reqMsg: delete id_16
+>>> delete
+delete id_16
+deinit SymEntry
+repMsg:deleted id_16
+<<< delete took 0.00012sec
+reqMsg: arange 0 5 1
+>>> arange
+arange 0 5 1 : 5 , id_20
+alloc time = 2.4e-05sec
+compute time = 5e-06sec
+aD = {0..4} 
+repMsg:created id_20 int64 5 1 (5) 8
+<<< arange took 0.000153sec
+reqMsg: delete id_18
+>>> delete
+delete id_18
+deinit SymEntry
+repMsg:deleted id_18
+<<< delete took 7.2e-05sec
+reqMsg: create bool 5
+>>> create
+create bool 5 : id_21
+aD = {0..4} 
+repMsg:created id_21 bool 5 1 (5) 1
+<<< create took 0.000106sec
+reqMsg: delete id_8
+>>> delete
+delete id_8
+deinit SymEntry
+repMsg:deleted id_8
+<<< delete took 9.5e-05sec
+reqMsg: [pdarray]=pdarray id_19 id_20 id_21
+>>> [pdarray]=pdarray
+[pdarray]=pdarray id_19 id_20 id_21
+repMsg:setPdarrayIndexToPdarray success
+<<< [pdarray]=pdarray took 0.00014sec
+reqMsg: str id_19 100
+>>> str
+str id_19 100
+repMsg:[False False False False False True True True True True]
+<<< str took 0.000112sec
+reqMsg: randint 10 20 10 int64
+>>> randint
+randint 10 20 10 int64 : id_22
+alloc time = 2.4e-05sec
+compute time = 2.4e-05sec
+aD = {0..9} 
+repMsg:created id_22 int64 10 1 (10) 8
+<<< randint took 0.000227sec
+reqMsg: delete id_19
+>>> delete
+delete id_19
+deinit SymEntry
+repMsg:deleted id_19
+<<< delete took 6.2e-05sec
+reqMsg: str id_22 100
+>>> str
+str id_22 100
+repMsg:[13 13 12 18 13 14 14 15 13 16]
+<<< str took 9.3e-05sec
+reqMsg: randint 0 10 5 int64
+>>> randint
+randint 0 10 5 int64 : id_23
+alloc time = 2.4e-05sec
+compute time = 1.1e-05sec
+aD = {0..4} 
+repMsg:created id_23 int64 5 1 (5) 8
+<<< randint took 0.000145sec
+reqMsg: delete id_20
+>>> delete
+delete id_20
+deinit SymEntry
+repMsg:deleted id_20
+<<< delete took 9.6e-05sec
+reqMsg: str id_23 100
+>>> str
+str id_23 100
+repMsg:[8 2 4 7 7]
+<<< str took 8e-05sec
+reqMsg: create int64 5
+>>> create
+create int64 5 : id_24
+aD = {0..4} 
+repMsg:created id_24 int64 5 1 (5) 8
+<<< create took 0.000103sec
+reqMsg: delete id_21
+>>> delete
+delete id_21
+deinit SymEntry
+repMsg:deleted id_21
+<<< delete took 8.5e-05sec
+reqMsg: [pdarray]=pdarray id_22 id_23 id_24
+>>> [pdarray]=pdarray
+[pdarray]=pdarray id_22 id_23 id_24
+repMsg:setPdarrayIndexToPdarray success
+<<< [pdarray]=pdarray took 9.8e-05sec
+reqMsg: str id_22 100
+>>> str
+str id_22 100
+repMsg:[13 13 0 18 0 14 14 0 0 16]
+<<< str took 0.000134sec
+reqMsg: randint 10 30 40 int64
+>>> randint
+randint 10 30 40 int64 : id_25
+alloc time = 4.6e-05sec
+compute time = 1.7e-05sec
+aD = {0..39} 
+repMsg:created id_25 int64 40 1 (40) 8
+<<< randint took 0.000264sec
+reqMsg: delete id_22
+>>> delete
+delete id_22
+deinit SymEntry
+repMsg:deleted id_22
+<<< delete took 9.7e-05sec
+reqMsg: value_counts id_25
+>>> value_counts
+value_counts id_25 : id_26 id_27
+pop = 15
+aD = {0..14} 
+aD = {0..14} 
+repMsg:created id_26 int64 15 1 (15) 8 +created id_27 int64 15 1 (15) 8
+<<< value_counts took 0.004996sec
+reqMsg: str id_26 100
+>>> str
+str id_26 100
+repMsg:[10 11 12 13 15 16 17 18 22 23 24 25 26 27 29]
+<<< str took 0.000147sec
+reqMsg: str id_27 100
+>>> str
+str id_27 100
+repMsg:[1 1 4 3 5 2 5 2 1 2 3 2 3 3 3]
+<<< str took 0.000161sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_28
+alloc time = 3.7e-05sec
+compute time = 1e-05sec
+aD = {0..9} 
+repMsg:created id_28 int64 10 1 (10) 8
+<<< arange took 0.000245sec
+reqMsg: delete id_25
+>>> delete
+delete id_25
+deinit SymEntry
+repMsg:deleted id_25
+<<< delete took 8.1e-05sec
+reqMsg: binopvs < id_28 int64 5
+>>> binopvs
+binopvs < id_28 int64 5 : id_29
+aD = {0..9} 
+repMsg:created id_29 bool 10 1 (10) 1
+<<< binopvs took 0.000202sec
+reqMsg: [pdarray] id_28 id_29
+>>> [pdarray]
+[pdarray] id_28 id_29 : id_30
+pop = 5last-scan = 5
+aD = {0..4} 
+repMsg:created id_30 int64 5 1 (5) 8
+<<< [pdarray] took 0.000257sec
+reqMsg: delete id_29
+>>> delete
+delete id_29
+deinit SymEntry
+repMsg:deleted id_29
+<<< delete took 7.9e-05sec
+reqMsg: delete id_24
+>>> delete
+delete id_24
+deinit SymEntry
+repMsg:deleted id_24
+<<< delete took 6.9e-05sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_31
+alloc time = 2.5e-05sec
+compute time = 9e-06sec
+aD = {0..9} 
+repMsg:created id_31 float64 10 1 (10) 8
+<<< linspace took 0.000227sec
+reqMsg: delete id_28
+>>> delete
+delete id_28
+deinit SymEntry
+repMsg:deleted id_28
+<<< delete took 0.000112sec
+reqMsg: binopvs < id_31 int64 5
+>>> binopvs
+binopvs < id_31 int64 5 : id_32
+aD = {0..9} 
+repMsg:created id_32 bool 10 1 (10) 1
+<<< binopvs took 0.000136sec
+reqMsg: [pdarray] id_31 id_32
+>>> [pdarray]
+[pdarray] id_31 id_32 : id_33
+pop = 5last-scan = 5
+aD = {0..4} 
+repMsg:created id_33 float64 5 1 (5) 8
+<<< [pdarray] took 0.000211sec
+reqMsg: delete id_32
+>>> delete
+delete id_32
+deinit SymEntry
+repMsg:deleted id_32
+<<< delete took 0.000104sec
+reqMsg: delete id_30
+>>> delete
+delete id_30
+deinit SymEntry
+repMsg:deleted id_30
+<<< delete took 9.1e-05sec
+reqMsg: str id_33 100
+>>> str
+str id_33 100
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00]
+<<< str took 9.2e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_34
+alloc time = 2.6e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_34 int64 10 1 (10) 8
+<<< arange took 0.000181sec
+reqMsg: delete id_31
+>>> delete
+delete id_31
+deinit SymEntry
+repMsg:deleted id_31
+<<< delete took 8.7e-05sec
+reqMsg: tondarray id_34
+>>> tondarray
+repMsg: <binary-data>
+<<< tondarray took 7.1e-05sec
+reqMsg: randint 10 30 40 int64
+>>> randint
+randint 10 30 40 int64 : id_35
+alloc time = 1.9e-05sec
+compute time = 1.1e-05sec
+aD = {0..39} 
+repMsg:created id_35 int64 40 1 (40) 8
+<<< randint took 0.000169sec
+reqMsg: delete id_34
+>>> delete
+delete id_34
+deinit SymEntry
+repMsg:deleted id_34
+<<< delete took 6.7e-05sec
+reqMsg: unique id_35 False
+>>> unique
+unique id_35 false: id_36 id_37
+pop = 19
+aD = {0..18} 
+repMsg:created id_36 int64 19 1 (19) 8
+<<< unique took 0.002942sec
+reqMsg: histogram id_35 20
+>>> histogram
+histogram id_35 20 : id_38
+binWidth 0.95
+20 <= 4096
+aD = {0..19} 
+repMsg:created id_38 int64 20 1 (20) 8
+<<< histogram took 0.000302sec
+reqMsg: str id_35 1000
+>>> str
+str id_35 1000
+repMsg:[20 14 22 15 18 21 27 18 26 17 15 17 29 28 20 24 16 28 14 11 23 19 16 26 12 10 11 25 14 25 25 16 29 26 12 19 20 10 16 16]
+<<< str took 0.000274sec
+reqMsg: str id_38 1000
+>>> str
+str id_38 1000
+repMsg:[2 2 2 0 3 2 5 2 2 2 3 1 1 1 1 3 3 1 2 2]
+<<< str took 0.000185sec
+reqMsg: str id_36 1000
+>>> str
+str id_36 1000
+repMsg:[10 11 12 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29]
+<<< str took 0.000211sec
+reqMsg: randint 10 30 50 int64
+>>> randint
+randint 10 30 50 int64 : id_39
+alloc time = 4.1e-05sec
+compute time = 1.1e-05sec
+aD = {0..49} 
+repMsg:created id_39 int64 50 1 (50) 8
+<<< randint took 0.000271sec
+reqMsg: delete id_35
+>>> delete
+delete id_35
+deinit SymEntry
+repMsg:deleted id_35
+<<< delete took 7.8e-05sec
+reqMsg: histogram id_39 20
+>>> histogram
+histogram id_39 20 : id_40
+binWidth 0.95
+20 <= 4096
+aD = {0..19} 
+repMsg:created id_40 int64 20 1 (20) 8
+<<< histogram took 0.000164sec
+reqMsg: delete id_38
+>>> delete
+delete id_38
+deinit SymEntry
+repMsg:deleted id_38
+<<< delete took 6.9e-05sec
+reqMsg: str id_39 1000
+>>> str
+str id_39 1000
+repMsg:[12 12 10 24 11 15 20 27 23 11 16 10 26 19 29 26 15 20 26 18 16 28 19 27 27 29 26 26 16 26 18 12 27 10 29 15 27 21 12 26 15 14 15 24 28 23 11 12 19 22]
+<<< str took 0.000327sec
+reqMsg: str id_40 1000
+>>> str
+str id_40 1000
+repMsg:[3 3 5 0 1 5 3 0 2 3 2 1 1 2 2 0 7 5 2 3]
+<<< str took 0.000151sec
+reqMsg: randint 0 2 50 bool
+>>> randint
+randint 0 2 50 bool : id_41
+alloc time = 1.8e-05sec
+compute time = 6e-06sec
+aD = {0..49} 
+repMsg:created id_41 bool 50 1 (50) 1
+<<< randint took 0.000133sec
+reqMsg: delete id_39
+>>> delete
+delete id_39
+deinit SymEntry
+repMsg:deleted id_39
+<<< delete took 0.000119sec
+reqMsg: str id_41 1000
+>>> str
+str id_41 1000
+repMsg:[False True True True False True True False False False False False False True False True True True False False True False True True True False False False False True True True True False False True False True True True True True True True False False True True False True]
+<<< str took 0.000322sec
+reqMsg: reduction sum id_41
+>>> reduction
+reduction sum id_41
+repMsg:int64 28
+<<< reduction took 0.000151sec
+reqMsg: linspace 101 102 100
+>>> linspace
+linspace 101 102 100 : 0.010101 , id_42
+alloc time = 3.2e-05sec
+compute time = 4e-06sec
+aD = {0..99} 
+repMsg:created id_42 float64 100 1 (100) 8
+<<< linspace took 0.000216sec
+reqMsg: delete id_41
+>>> delete
+delete id_41
+deinit SymEntry
+repMsg:deleted id_41
+<<< delete took 9.1e-05sec
+reqMsg: histogram id_42 50
+>>> histogram
+histogram id_42 50 : id_43
+binWidth 0.02
+50 <= 4096
+aD = {0..49} 
+repMsg:created id_43 int64 50 1 (50) 8
+<<< histogram took 0.000246sec
+reqMsg: delete id_40
+>>> delete
+delete id_40
+deinit SymEntry
+repMsg:deleted id_40
+<<< delete took 7.1e-05sec
+reqMsg: str id_43 1000
+>>> str
+str id_43 1000
+repMsg:[2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
+<<< str took 0.000321sec
+reqMsg: arange 0 100 1
+>>> arange
+arange 0 100 1 : 100 , id_44
+alloc time = 3.1e-05sec
+compute time = 4.99999e-06sec
+aD = {0..99} 
+repMsg:created id_44 int64 100 1 (100) 8
+<<< arange took 0.000165sec
+reqMsg: delete id_42
+>>> delete
+delete id_42
+deinit SymEntry
+repMsg:deleted id_42
+<<< delete took 6.5e-05sec
+reqMsg: histogram id_44 10
+>>> histogram
+histogram id_44 10 : id_45
+binWidth 9.9
+10 <= 4096
+aD = {0..9} 
+repMsg:created id_45 int64 10 1 (10) 8
+<<< histogram took 0.00016sec
+reqMsg: delete id_43
+>>> delete
+delete id_43
+deinit SymEntry
+repMsg:deleted id_43
+<<< delete took 8.7e-05sec
+reqMsg: str id_45 1000
+>>> str
+str id_45 1000
+repMsg:[10 10 10 10 10 10 10 10 10 10]
+<<< str took 0.000111sec
+reqMsg: arange 0 99 1
+>>> arange
+arange 0 99 1 : 99 , id_46
+alloc time = 2e-05sec
+compute time = 4e-06sec
+aD = {0..98} 
+repMsg:created id_46 int64 99 1 (99) 8
+<<< arange took 0.000148sec
+reqMsg: delete id_44
+>>> delete
+delete id_44
+deinit SymEntry
+repMsg:deleted id_44
+<<< delete took 7.9e-05sec
+reqMsg: [slice] id_46 0 99 10
+>>> [slice]
+[slice] id_46 0 99 10 : 0..98 by 10 , id_47
+aD = {0..9} 
+repMsg:created id_47 int64 10 1 (10) 8
+<<< [slice] took 0.000183sec
+reqMsg: delete id_33
+>>> delete
+delete id_33
+deinit SymEntry
+repMsg:deleted id_33
+<<< delete took 7.5e-05sec
+reqMsg: [slice] id_47 9 -1 -1
+>>> [slice]
+[slice] id_47 9 -1 -1 : 0..9 by -1 , id_48
+aD = {0..9} 
+repMsg:created id_48 int64 10 1 (10) 8
+<<< [slice] took 0.000129sec
+reqMsg: delete id_47
+>>> delete
+delete id_47
+deinit SymEntry
+repMsg:deleted id_47
+<<< delete took 6.5e-05sec
+reqMsg: str id_46 1000
+>>> str
+str id_46 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98]
+<<< str took 0.00049sec
+reqMsg: str id_48 1000
+>>> str
+str id_48 1000
+repMsg:[90 80 70 60 50 40 30 20 10 0]
+<<< str took 0.000118sec
+reqMsg: in1d id_46 id_48 False
+>>> in1d
+in1d id_46 id_48 false : id_49
+10 <= 16
+aD = {0..98} 
+repMsg:created id_49 bool 99 1 (99) 1
+<<< in1d took 0.000216sec
+reqMsg: delete id_2
+>>> delete
+delete id_2
+deinit SymEntry
+repMsg:deleted id_2
+<<< delete took 9e-05sec
+reqMsg: str id_49 1000
+>>> str
+str id_49 1000
+repMsg:[True False False False False False False False False False True False False False False False False False False False True False False False False False False False False False True False False False False False False False False False True False False False False False False False False False True False False False False False False False False False True False False False False False False False False False True False False False False False False False False False True False False False False False False False False False True False False False False False False False False]
+<<< str took 0.000572sec
+reqMsg: [pdarray] id_46 id_49
+>>> [pdarray]
+[pdarray] id_46 id_49 : id_50
+pop = 10last-scan = 10
+aD = {0..9} 
+repMsg:created id_50 int64 10 1 (10) 8
+<<< [pdarray] took 0.00027sec
+reqMsg: str id_50 1000
+>>> str
+str id_50 1000
+repMsg:[0 10 20 30 40 50 60 70 80 90]
+<<< str took 0.000109sec
+reqMsg: delete id_50
+>>> delete
+delete id_50
+deinit SymEntry
+repMsg:deleted id_50
+<<< delete took 8.9e-05sec
+reqMsg: delete id_46
+>>> delete
+delete id_46
+deinit SymEntry
+repMsg:deleted id_46
+<<< delete took 9.6e-05sec
+reqMsg: delete id_48
+>>> delete
+delete id_48
+deinit SymEntry
+repMsg:deleted id_48
+<<< delete took 9.8e-05sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_51
+alloc time = 2e-05sec
+compute time = 4.99999e-06sec
+aD = {0..9} 
+repMsg:created id_51 float64 10 1 (10) 8
+<<< linspace took 0.000147sec
+reqMsg: tondarray id_51
+>>> tondarray
+repMsg: <binary-data>
+<<< tondarray took 4.4e-05sec
+reqMsg: str id_51 1000
+>>> str
+str id_51 1000
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00 5.000000e+00 6.000000e+00 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 0.000129sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_52
+alloc time = 1.9e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_52 int64 10 1 (10) 8
+<<< arange took 0.000163sec
+reqMsg: delete id_51
+>>> delete
+delete id_51
+deinit SymEntry
+repMsg:deleted id_51
+<<< delete took 7.8e-05sec
+reqMsg: tondarray id_52
+>>> tondarray
+repMsg: <binary-data>
+<<< tondarray took 8.1e-05sec
+reqMsg: str id_52 1000
+>>> str
+str id_52 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 9.8e-05sec
+reqMsg: create bool 10
+>>> create
+create bool 10 : id_53
+aD = {0..9} 
+repMsg:created id_53 bool 10 1 (10) 1
+<<< create took 0.000117sec
+reqMsg: set id_53 bool True
+>>> set
+set id_53 to true
+repMsg:set id_53 to true
+<<< set took 0.00011sec
+reqMsg: delete id_52
+>>> delete
+delete id_52
+deinit SymEntry
+repMsg:deleted id_52
+<<< delete took 7.3e-05sec
+reqMsg: tondarray id_53
+>>> tondarray
+repMsg: <binary-data>
+<<< tondarray took 4.3e-05sec
+reqMsg: str id_53 1000
+>>> str
+str id_53 1000
+repMsg:[True True True True True True True True True True]
+<<< str took 0.000114sec
+reqMsg: delete id_53
+>>> delete
+delete id_53
+deinit SymEntry
+repMsg:deleted id_53
+<<< delete took 0.000115sec
+reqMsg: arange 0 100 1
+>>> arange
+arange 0 100 1 : 100 , id_54
+alloc time = 2e-05sec
+compute time = 4e-06sec
+aD = {0..99} 
+repMsg:created id_54 int64 100 1 (100) 8
+<<< arange took 0.000166sec
+reqMsg: str id_54 1000
+>>> str
+str id_54 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99]
+<<< str took 0.000487sec
+reqMsg: linspace 0 99 100
+>>> linspace
+linspace 0 99 100 : 1 , id_55
+alloc time = 2e-05sec
+compute time = 3.99999e-06sec
+aD = {0..99} 
+repMsg:created id_55 float64 100 1 (100) 8
+<<< linspace took 0.000194sec
+reqMsg: repr id_55 1000
+>>> repr
+repr id_55 1000
+repMsg:array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99])
+<<< repr took 0.000594sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_56
+alloc time = 1.9e-05sec
+compute time = 3.99999e-06sec
+aD = {0..9} 
+repMsg:created id_56 float64 10 1 (10) 8
+<<< linspace took 0.000182sec
+reqMsg: delete id_55
+>>> delete
+delete id_55
+deinit SymEntry
+repMsg:deleted id_55
+<<< delete took 8.1e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_57
+alloc time = 1.8e-05sec
+compute time = 5e-06sec
+aD = {0..9} 
+repMsg:created id_57 int64 10 1 (10) 8
+<<< arange took 0.000133sec
+reqMsg: delete id_54
+>>> delete
+delete id_54
+deinit SymEntry
+repMsg:deleted id_54
+<<< delete took 8.1e-05sec
+reqMsg: str id_57 1000
+>>> str
+str id_57 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000123sec
+reqMsg: str id_56 1000
+>>> str
+str id_56 1000
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00 5.000000e+00 6.000000e+00 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 0.000199sec
+reqMsg: binopvv + id_57 id_56
+>>> binopvv
+binopvv + id_57 id_56 : id_58
+aD = {0..9} 
+repMsg:created id_58 float64 10 1 (10) 8
+<<< binopvv took 0.000122sec
+reqMsg: info id_58
+>>> info
+info id_58
+repMsg:name:"id_58" dtype:"float64" size:10 ndim:1 shape:(10) itemsize:8
+
+<<< info took 0.000113sec
+reqMsg: delete id_58
+>>> delete
+delete id_58
+deinit SymEntry
+repMsg:deleted id_58
+<<< delete took 0.000121sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_59
+alloc time = 2e-05sec
+compute time = 3.99999e-06sec
+aD = {0..9} 
+repMsg:created id_59 int64 10 1 (10) 8
+<<< arange took 0.000137sec
+reqMsg: delete id_49
+>>> delete
+delete id_49
+deinit SymEntry
+repMsg:deleted id_49
+<<< delete took 7.6e-05sec
+reqMsg: info id_59
+>>> info
+info id_59
+repMsg:name:"id_59" dtype:"int64" size:10 ndim:1 shape:(10) itemsize:8
+
+<<< info took 8.4e-05sec
+reqMsg: str id_59 1000
+>>> str
+str id_59 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000136sec
+reqMsg: binopsv + int64 5 id_59
+>>> binopsv
+binopsv + int64 5 id_59 : id_60
+aD = {0..9} 
+repMsg:created id_60 int64 10 1 (10) 8
+<<< binopsv took 0.000137sec
+reqMsg: binopvs + id_60 int64 5
+>>> binopvs
+binopvs + id_60 int64 5 : id_61
+aD = {0..9} 
+repMsg:created id_61 int64 10 1 (10) 8
+<<< binopvs took 0.000139sec
+reqMsg: delete id_60
+>>> delete
+delete id_60
+deinit SymEntry
+repMsg:deleted id_60
+<<< delete took 6.9e-05sec
+reqMsg: str id_61 1000
+>>> str
+str id_61 1000
+repMsg:[10 11 12 13 14 15 16 17 18 19]
+<<< str took 0.000103sec
+reqMsg: delete id_61
+>>> delete
+delete id_61
+deinit SymEntry
+repMsg:deleted id_61
+<<< delete took 7.6e-05sec
+reqMsg: delete id_59
+>>> delete
+delete id_59
+deinit SymEntry
+repMsg:deleted id_59
+<<< delete took 0.000106sec
+reqMsg: delete id_57
+>>> delete
+delete id_57
+deinit SymEntry
+repMsg:deleted id_57
+<<< delete took 7.3e-05sec
+reqMsg: delete id_56
+>>> delete
+delete id_56
+deinit SymEntry
+repMsg:deleted id_56
+<<< delete took 7.4e-05sec
+reqMsg: create float64 9
+>>> create
+create float64 9 : id_62
+aD = {0..8} 
+repMsg:created id_62 float64 9 1 (9) 8
+<<< create took 0.000143sec
+reqMsg: set id_62 float64 1.00000000000000000
+>>> set
+set id_62 to 1.000000e+00
+repMsg:set id_62 to 1.000000e+00
+<<< set took 8.7e-05sec
+reqMsg: arange 1 10 1
+>>> arange
+arange 1 10 1 : 9 , id_63
+alloc time = 1.8e-05sec
+compute time = 4e-06sec
+aD = {0..8} 
+repMsg:created id_63 int64 9 1 (9) 8
+<<< arange took 0.000127sec
+reqMsg: delete id_3
+>>> delete
+delete id_3
+deinit SymEntry
+repMsg:deleted id_3
+<<< delete took 7.2e-05sec
+reqMsg: binopvv / id_62 id_63
+>>> binopvv
+binopvv / id_62 id_63 : id_64
+aD = {0..8} 
+repMsg:created id_64 float64 9 1 (9) 8
+<<< binopvv took 0.000148sec
+reqMsg: str id_64 1000
+>>> str
+str id_64 1000
+repMsg:[1.000000e+00 5.000000e-01 3.333333e-01 2.500000e-01 2.000000e-01 1.666667e-01 1.428571e-01 1.250000e-01 1.111111e-01]
+<<< str took 0.000116sec
+reqMsg: [int] id_64 5
+>>> [int]
+[int] id_64 5
+repMsg:item float64 0.16666666666666666
+<<< [int] took 9.2e-05sec
+reqMsg: [int] id_64 5
+>>> [int]
+[int] id_64 5
+repMsg:item float64 0.16666666666666666
+<<< [int] took 8.3e-05sec
+reqMsg: binopvv // id_62 id_63
+>>> binopvv
+binopvv // id_62 id_63 : id_65
+aD = {0..8} 
+repMsg:created id_65 float64 9 1 (9) 8
+<<< binopvv took 0.000126sec
+reqMsg: delete id_64
+>>> delete
+delete id_64
+deinit SymEntry
+repMsg:deleted id_64
+<<< delete took 7.5e-05sec
+reqMsg: str id_65 1000
+>>> str
+str id_65 1000
+repMsg:[1.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00]
+<<< str took 0.000156sec
+reqMsg: [int] id_65 5
+>>> [int]
+[int] id_65 5
+repMsg:item float64 0
+<<< [int] took 8.5e-05sec
+reqMsg: [int] id_65 5
+>>> [int]
+[int] id_65 5
+repMsg:item float64 0
+<<< [int] took 8.6e-05sec
+reqMsg: arange 1 10 1
+>>> arange
+arange 1 10 1 : 9 , id_66
+alloc time = 2.1e-05sec
+compute time = 3.99999e-06sec
+aD = {0..8} 
+repMsg:created id_66 int64 9 1 (9) 8
+<<< arange took 0.000132sec
+reqMsg: delete id_62
+>>> delete
+delete id_62
+deinit SymEntry
+repMsg:deleted id_62
+<<< delete took 8.2e-05sec
+reqMsg: opeqvv //= id_66 id_66
+>>> opeqvv
+opeqvv //= id_66 id_66
+repMsg:opeqvv success
+<<< opeqvv took 9.9e-05sec
+reqMsg: str id_66 1000
+>>> str
+str id_66 1000
+repMsg:[1 1 1 1 1 1 1 1 1]
+<<< str took 0.000112sec
+reqMsg: opeqvv += id_66 id_66
+>>> opeqvv
+opeqvv += id_66 id_66
+repMsg:opeqvv success
+<<< opeqvv took 0.000108sec
+reqMsg: str id_66 1000
+>>> str
+str id_66 1000
+repMsg:[2 2 2 2 2 2 2 2 2]
+<<< str took 0.000143sec
+reqMsg: opeqvv *= id_66 id_66
+>>> opeqvv
+opeqvv *= id_66 id_66
+repMsg:opeqvv success
+<<< opeqvv took 7.6e-05sec
+reqMsg: str id_66 1000
+>>> str
+str id_66 1000
+repMsg:[4 4 4 4 4 4 4 4 4]
+<<< str took 0.000101sec
+reqMsg: create int64 9
+>>> create
+create int64 9 : id_67
+aD = {0..8} 
+repMsg:created id_67 int64 9 1 (9) 8
+<<< create took 0.000125sec
+reqMsg: set id_67 int64 1
+>>> set
+set id_67 to 1
+repMsg:set id_67 to 1
+<<< set took 8.4e-05sec
+reqMsg: create int64 9
+>>> create
+create int64 9 : id_68
+aD = {0..8} 
+repMsg:created id_68 int64 9 1 (9) 8
+<<< create took 9.8e-05sec
+reqMsg: set id_68 int64 1
+>>> set
+set id_68 to 1
+repMsg:set id_68 to 1
+<<< set took 7.8e-05sec
+reqMsg: str id_68 1000
+>>> str
+str id_68 1000
+repMsg:[1 1 1 1 1 1 1 1 1]
+<<< str took 9.9e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_69
+alloc time = 2.4e-05sec
+compute time = 6e-06sec
+aD = {0..9} 
+repMsg:created id_69 int64 10 1 (10) 8
+<<< arange took 0.00022sec
+reqMsg: delete id_67
+>>> delete
+delete id_67
+deinit SymEntry
+repMsg:deleted id_67
+<<< delete took 9.7e-05sec
+reqMsg: delete id_68
+>>> delete
+delete id_68
+deinit SymEntry
+repMsg:deleted id_68
+<<< delete took 7.3e-05sec
+reqMsg: [int] id_69 5
+>>> [int]
+[int] id_69 5
+repMsg:item int64 5
+<<< [int] took 7.5e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_70
+alloc time = 2.1e-05sec
+compute time = 3.99999e-06sec
+aD = {0..9} 
+repMsg:created id_70 int64 10 1 (10) 8
+<<< arange took 0.00016sec
+reqMsg: delete id_69
+>>> delete
+delete id_69
+deinit SymEntry
+repMsg:deleted id_69
+<<< delete took 7.6e-05sec
+reqMsg: [int]=val id_70 5 int64 10
+>>> [int]=val
+[int]=val id_70 5 int64 10
+repMsg:setIntIndexToValue success
+<<< [int]=val took 6.7e-05sec
+reqMsg: [int] id_70 5
+>>> [int]
+[int] id_70 5
+repMsg:item int64 10
+<<< [int] took 6.1e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_71
+alloc time = 1.9e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_71 int64 10 1 (10) 8
+<<< arange took 0.000155sec
+reqMsg: delete id_70
+>>> delete
+delete id_70
+deinit SymEntry
+repMsg:deleted id_70
+<<< delete took 8.3e-05sec
+reqMsg: [slice] id_71 4 9 -1
+>>> [slice]
+[slice] id_71 4 9 -1 : 1..0 , id_72
+aD = {0..-1} 
+repMsg:created id_72 int64 0 1 (0) 8
+<<< [slice] took 0.00012sec
+reqMsg: str id_72 1000
+>>> str
+str id_72 1000
+repMsg:[]
+<<< str took 5.3e-05sec
+reqMsg: delete id_72
+>>> delete
+delete id_72
+deinit SymEntry
+repMsg:deleted id_72
+<<< delete took 9.6e-05sec
+reqMsg: [slice] id_71 9 1 -1
+>>> [slice]
+[slice] id_71 9 1 -1 : 2..9 by -1 , id_73
+aD = {0..7} 
+repMsg:created id_73 int64 8 1 (8) 8
+<<< [slice] took 0.000117sec
+reqMsg: str id_73 1000
+>>> str
+str id_73 1000
+repMsg:[9 8 7 6 5 4 3 2]
+<<< str took 8.4e-05sec
+reqMsg: delete id_73
+>>> delete
+delete id_73
+deinit SymEntry
+repMsg:deleted id_73
+<<< delete took 9.7e-05sec
+reqMsg: arange 1 10 1
+>>> arange
+arange 1 10 1 : 9 , id_74
+alloc time = 1.9e-05sec
+compute time = 3e-06sec
+aD = {0..8} 
+repMsg:created id_74 int64 9 1 (9) 8
+<<< arange took 0.000187sec
+reqMsg: delete id_63
+>>> delete
+delete id_63
+deinit SymEntry
+repMsg:deleted id_63
+<<< delete took 7.7e-05sec
+reqMsg: info id_74
+>>> info
+info id_74
+repMsg:name:"id_74" dtype:"int64" size:9 ndim:1 shape:(9) itemsize:8
+
+<<< info took 7.9e-05sec
+reqMsg: create bool 10
+>>> create
+create bool 10 : id_75
+aD = {0..9} 
+repMsg:created id_75 bool 10 1 (10) 1
+<<< create took 0.000157sec
+reqMsg: set id_75 bool True
+>>> set
+set id_75 to true
+repMsg:set id_75 to true
+<<< set took 0.000116sec
+reqMsg: delete id_71
+>>> delete
+delete id_71
+deinit SymEntry
+repMsg:deleted id_71
+<<< delete took 7.4e-05sec
+reqMsg: [int] id_75 1
+>>> [int]
+[int] id_75 1
+repMsg:item bool True
+<<< [int] took 6.5e-05sec
+reqMsg: create bool 10
+>>> create
+create bool 10 : id_76
+aD = {0..9} 
+repMsg:created id_76 bool 10 1 (10) 1
+<<< create took 0.000146sec
+reqMsg: delete id_75
+>>> delete
+delete id_75
+deinit SymEntry
+repMsg:deleted id_75
+<<< delete took 0.000144sec
+reqMsg: [int] id_76 1
+>>> [int]
+[int] id_76 1
+repMsg:item bool False
+<<< [int] took 5.7e-05sec
+reqMsg: create bool 10
+>>> create
+create bool 10 : id_77
+aD = {0..9} 
+repMsg:created id_77 bool 10 1 (10) 1
+<<< create took 0.000142sec
+reqMsg: set id_77 bool True
+>>> set
+set id_77 to true
+repMsg:set id_77 to true
+<<< set took 8.6e-05sec
+reqMsg: delete id_76
+>>> delete
+delete id_76
+deinit SymEntry
+repMsg:deleted id_76
+<<< delete took 8.3e-05sec
+reqMsg: [int]=val id_77 4 bool False
+>>> [int]=val
+[int]=val id_77 4 bool False
+repMsg:setIntIndexToValue success
+<<< [int]=val took 8.4e-05sec
+reqMsg: [int]=val id_77 1 bool False
+>>> [int]=val
+[int]=val id_77 1 bool False
+repMsg:setIntIndexToValue success
+<<< [int]=val took 7.9e-05sec
+reqMsg: str id_77 1000
+>>> str
+str id_77 1000
+repMsg:[True False True True False True True True True True]
+<<< str took 0.000154sec
+reqMsg: [slice] id_77 0 10 2
+>>> [slice]
+[slice] id_77 0 10 2 : 0..9 by 2 , id_78
+aD = {0..4} 
+repMsg:created id_78 bool 5 1 (5) 1
+<<< [slice] took 0.000166sec
+reqMsg: str id_78 1000
+>>> str
+str id_78 1000
+repMsg:[True True False True True]
+<<< str took 0.0001sec
+reqMsg: delete id_78
+>>> delete
+delete id_78
+deinit SymEntry
+repMsg:deleted id_78
+<<< delete took 8.8e-05sec
+reqMsg: [int] id_77 1
+>>> [int]
+[int] id_77 1
+repMsg:item bool False
+<<< [int] took 5.9e-05sec
+reqMsg: create int64 10
+>>> create
+create int64 10 : id_79
+aD = {0..9} 
+repMsg:created id_79 int64 10 1 (10) 8
+<<< create took 0.000108sec
+reqMsg: set id_79 int64 1
+>>> set
+set id_79 to 1
+repMsg:set id_79 to 1
+<<< set took 8.8e-05sec
+reqMsg: delete id_77
+>>> delete
+delete id_77
+deinit SymEntry
+repMsg:deleted id_77
+<<< delete took 7.6e-05sec
+reqMsg: [int]=val id_79 4 int64 0
+>>> [int]=val
+[int]=val id_79 4 int64 0
+repMsg:setIntIndexToValue success
+<<< [int]=val took 6.6e-05sec
+reqMsg: [int]=val id_79 1 int64 0
+>>> [int]=val
+[int]=val id_79 1 int64 0
+repMsg:setIntIndexToValue success
+<<< [int]=val took 9.3e-05sec
+reqMsg: str id_79 1000
+>>> str
+str id_79 1000
+repMsg:[1 0 1 1 0 1 1 1 1 1]
+<<< str took 0.000118sec
+reqMsg: [slice] id_79 0 10 2
+>>> [slice]
+[slice] id_79 0 10 2 : 0..9 by 2 , id_80
+aD = {0..4} 
+repMsg:created id_80 int64 5 1 (5) 8
+<<< [slice] took 0.000133sec
+reqMsg: str id_80 1000
+>>> str
+str id_80 1000
+repMsg:[1 1 0 1 1]
+<<< str took 7.2e-05sec
+reqMsg: delete id_80
+>>> delete
+delete id_80
+deinit SymEntry
+repMsg:deleted id_80
+<<< delete took 9.1e-05sec
+reqMsg: [int] id_79 1
+>>> [int]
+[int] id_79 1
+repMsg:item int64 0
+<<< [int] took 6.5e-05sec
+reqMsg: create float64 10
+>>> create
+create float64 10 : id_81
+aD = {0..9} 
+repMsg:created id_81 float64 10 1 (10) 8
+<<< create took 0.000127sec
+reqMsg: set id_81 float64 1.00000000000000000
+>>> set
+set id_81 to 1.000000e+00
+repMsg:set id_81 to 1.000000e+00
+<<< set took 9.3e-05sec
+reqMsg: delete id_79
+>>> delete
+delete id_79
+deinit SymEntry
+repMsg:deleted id_79
+<<< delete took 8.4e-05sec
+reqMsg: [int]=val id_81 4 float64 0.00000000000000000
+>>> [int]=val
+[int]=val id_81 4 float64 0.00000000000000000
+repMsg:setIntIndexToValue success
+<<< [int]=val took 8.2e-05sec
+reqMsg: [int]=val id_81 1 float64 0.00000000000000000
+>>> [int]=val
+[int]=val id_81 1 float64 0.00000000000000000
+repMsg:setIntIndexToValue success
+<<< [int]=val took 7.9e-05sec
+reqMsg: str id_81 1000
+>>> str
+str id_81 1000
+repMsg:[1.000000e+00 0.000000e+00 1.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00]
+<<< str took 0.000122sec
+reqMsg: [slice] id_81 0 10 2
+>>> [slice]
+[slice] id_81 0 10 2 : 0..9 by 2 , id_82
+aD = {0..4} 
+repMsg:created id_82 float64 5 1 (5) 8
+<<< [slice] took 0.000154sec
+reqMsg: str id_82 1000
+>>> str
+str id_82 1000
+repMsg:[1.000000e+00 1.000000e+00 0.000000e+00 1.000000e+00 1.000000e+00]
+<<< str took 8.2e-05sec
+reqMsg: delete id_82
+>>> delete
+delete id_82
+deinit SymEntry
+repMsg:deleted id_82
+<<< delete took 6.5e-05sec
+reqMsg: [int] id_81 1
+>>> [int]
+[int] id_81 1
+repMsg:item float64 0
+<<< [int] took 6.6e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_83
+alloc time = 2.1e-05sec
+compute time = 1.1e-05sec
+aD = {0..9} 
+repMsg:created id_83 int64 10 1 (10) 8
+<<< arange took 0.000194sec
+reqMsg: delete id_81
+>>> delete
+delete id_81
+deinit SymEntry
+repMsg:deleted id_81
+<<< delete took 0.000101sec
+reqMsg: tondarray id_83
+>>> tondarray
+repMsg: <binary-data>
+<<< tondarray took 5.9e-05sec
+reqMsg: binopvs < id_83 int64 5
+>>> binopvs
+binopvs < id_83 int64 5 : id_84
+aD = {0..9} 
+repMsg:created id_84 bool 10 1 (10) 1
+<<< binopvs took 0.00012sec
+reqMsg: delete id_83
+>>> delete
+delete id_83
+deinit SymEntry
+repMsg:deleted id_83
+<<< delete took 0.000107sec
+reqMsg: tondarray id_84
+>>> tondarray
+repMsg: <binary-data>
+<<< tondarray took 4.4e-05sec
+reqMsg: linspace 1 10 10
+>>> linspace
+linspace 1 10 10 : 1 , id_85
+alloc time = 1.8e-05sec
+compute time = 5e-06sec
+aD = {0..9} 
+repMsg:created id_85 float64 10 1 (10) 8
+<<< linspace took 0.000152sec
+reqMsg: delete id_84
+>>> delete
+delete id_84
+deinit SymEntry
+repMsg:deleted id_84
+<<< delete took 7e-05sec
+reqMsg: efunc abs id_85
+>>> efunc
+efunc abs id_85 : id_86
+aD = {0..9} 
+repMsg:created id_86 float64 10 1 (10) 8
+<<< efunc took 0.000169sec
+reqMsg: str id_86 1000
+>>> str
+str id_86 1000
+repMsg:[1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00 5.000000e+00 6.000000e+00 7.000000e+00 8.000000e+00 9.000000e+00 1.000000e+01]
+<<< str took 0.000118sec
+reqMsg: delete id_86
+>>> delete
+delete id_86
+deinit SymEntry
+repMsg:deleted id_86
+<<< delete took 9.9e-05sec
+reqMsg: efunc log id_85
+>>> efunc
+efunc log id_85 : id_87
+aD = {0..9} 
+repMsg:created id_87 float64 10 1 (10) 8
+<<< efunc took 0.000124sec
+reqMsg: str id_87 1000
+>>> str
+str id_87 1000
+repMsg:[0.000000e+00 6.931472e-01 1.098612e+00 1.386294e+00 1.609438e+00 1.791759e+00 1.945910e+00 2.079442e+00 2.197225e+00 2.302585e+00]
+<<< str took 0.000137sec
+reqMsg: delete id_87
+>>> delete
+delete id_87
+deinit SymEntry
+repMsg:deleted id_87
+<<< delete took 9.3e-05sec
+reqMsg: efunc exp id_85
+>>> efunc
+efunc exp id_85 : id_88
+aD = {0..9} 
+repMsg:created id_88 float64 10 1 (10) 8
+<<< efunc took 0.000156sec
+reqMsg: str id_88 1000
+>>> str
+str id_88 1000
+repMsg:[2.718282e+00 7.389056e+00 2.008554e+01 5.459815e+01 1.484132e+02 4.034288e+02 1.096633e+03 2.980958e+03 8.103084e+03 2.202647e+04]
+<<< str took 0.000135sec
+reqMsg: delete id_88
+>>> delete
+delete id_88
+deinit SymEntry
+repMsg:deleted id_88
+<<< delete took 9.2e-05sec
+reqMsg: set id_85 float64 2.71828182845904509
+>>> set
+set id_85 to 2.718282e+00
+repMsg:set id_85 to 2.718282e+00
+<<< set took 9.3e-05sec
+reqMsg: efunc log id_85
+>>> efunc
+efunc log id_85 : id_89
+aD = {0..9} 
+repMsg:created id_89 float64 10 1 (10) 8
+<<< efunc took 9.6e-05sec
+reqMsg: str id_89 1000
+>>> str
+str id_89 1000
+repMsg:[1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00]
+<<< str took 0.000128sec
+reqMsg: delete id_89
+>>> delete
+delete id_89
+deinit SymEntry
+repMsg:deleted id_89
+<<< delete took 0.000101sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_90
+alloc time = 1.9e-05sec
+compute time = 3.99999e-06sec
+aD = {0..9} 
+repMsg:created id_90 float64 10 1 (10) 8
+<<< linspace took 0.000187sec
+reqMsg: delete id_85
+>>> delete
+delete id_85
+deinit SymEntry
+repMsg:deleted id_85
+<<< delete took 7.9e-05sec
+reqMsg: reduction any id_90
+>>> reduction
+reduction any id_90
+repMsg:bool True
+<<< reduction took 8e-05sec
+reqMsg: reduction all id_90
+>>> reduction
+reduction all id_90
+repMsg:bool False
+<<< reduction took 8.9e-05sec
+reqMsg: create float64 10
+>>> create
+create float64 10 : id_91
+aD = {0..9} 
+repMsg:created id_91 float64 10 1 (10) 8
+<<< create took 0.000137sec
+reqMsg: set id_91 float64 1.00000000000000000
+>>> set
+set id_91 to 1.000000e+00
+repMsg:set id_91 to 1.000000e+00
+<<< set took 7.9e-05sec
+reqMsg: reduction all id_91
+>>> reduction
+reduction all id_91
+repMsg:bool True
+<<< reduction took 6.5e-05sec
+reqMsg: delete id_91
+>>> delete
+delete id_91
+deinit SymEntry
+repMsg:deleted id_91
+<<< delete took 9.6e-05sec
+reqMsg: str id_90 1000
+>>> str
+str id_90 1000
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00 5.000000e+00 6.000000e+00 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 0.000131sec
+reqMsg: binopvs < id_90 int64 5
+>>> binopvs
+binopvs < id_90 int64 5 : id_92
+aD = {0..9} 
+repMsg:created id_92 bool 10 1 (10) 1
+<<< binopvs took 0.000151sec
+reqMsg: reduction any id_92
+>>> reduction
+reduction any id_92
+repMsg:bool True
+<<< reduction took 7.1e-05sec
+reqMsg: reduction all id_92
+>>> reduction
+reduction all id_92
+repMsg:bool False
+<<< reduction took 8.8e-05sec
+reqMsg: create bool 10
+>>> create
+create bool 10 : id_93
+aD = {0..9} 
+repMsg:created id_93 bool 10 1 (10) 1
+<<< create took 9.4e-05sec
+reqMsg: set id_93 bool True
+>>> set
+set id_93 to true
+repMsg:set id_93 to true
+<<< set took 8.8e-05sec
+reqMsg: reduction all id_93
+>>> reduction
+reduction all id_93
+repMsg:bool True
+<<< reduction took 6.2e-05sec
+reqMsg: delete id_93
+>>> delete
+delete id_93
+deinit SymEntry
+repMsg:deleted id_93
+<<< delete took 9.7e-05sec
+reqMsg: str id_92 1000
+>>> str
+str id_92 1000
+repMsg:[True True True True True False False False False False]
+<<< str took 0.000109sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_94
+alloc time = 2.1e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_94 int64 10 1 (10) 8
+<<< arange took 0.000175sec
+reqMsg: delete id_66
+>>> delete
+delete id_66
+deinit SymEntry
+repMsg:deleted id_66
+<<< delete took 8.1e-05sec
+reqMsg: reduction any id_94
+>>> reduction
+reduction any id_94
+repMsg:bool True
+<<< reduction took 8.4e-05sec
+reqMsg: reduction all id_94
+>>> reduction
+reduction all id_94
+repMsg:bool False
+<<< reduction took 7.9e-05sec
+reqMsg: create int64 10
+>>> create
+create int64 10 : id_95
+aD = {0..9} 
+repMsg:created id_95 int64 10 1 (10) 8
+<<< create took 0.000106sec
+reqMsg: set id_95 int64 1
+>>> set
+set id_95 to 1
+repMsg:set id_95 to 1
+<<< set took 6.3e-05sec
+reqMsg: reduction all id_95
+>>> reduction
+reduction all id_95
+repMsg:bool True
+<<< reduction took 7.6e-05sec
+reqMsg: delete id_95
+>>> delete
+delete id_95
+deinit SymEntry
+repMsg:deleted id_95
+<<< delete took 8.8e-05sec
+reqMsg: str id_94 1000
+>>> str
+str id_94 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000181sec
+reqMsg: reduction any id_90
+>>> reduction
+reduction any id_90
+repMsg:bool True
+<<< reduction took 8.5e-05sec
+reqMsg: reduction all id_90
+>>> reduction
+reduction all id_90
+repMsg:bool False
+<<< reduction took 8.6e-05sec
+reqMsg: reduction any id_92
+>>> reduction
+reduction any id_92
+repMsg:bool True
+<<< reduction took 8e-05sec
+reqMsg: reduction all id_92
+>>> reduction
+reduction all id_92
+repMsg:bool False
+<<< reduction took 6.5e-05sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_96
+alloc time = 2e-05sec
+compute time = 3.99999e-06sec
+aD = {0..9} 
+repMsg:created id_96 float64 10 1 (10) 8
+<<< linspace took 0.000179sec
+reqMsg: delete id_90
+>>> delete
+delete id_90
+deinit SymEntry
+repMsg:deleted id_90
+<<< delete took 8.5e-05sec
+reqMsg: reduction sum id_96
+>>> reduction
+reduction sum id_96
+repMsg:float64 45
+<<< reduction took 7.2e-05sec
+reqMsg: delete id_92
+>>> delete
+delete id_92
+deinit SymEntry
+repMsg:deleted id_92
+<<< delete took 6.8e-05sec
+reqMsg: reduction sum id_96
+>>> reduction
+reduction sum id_96
+repMsg:float64 45
+<<< reduction took 6.5e-05sec
+reqMsg: reduction sum id_96
+>>> reduction
+reduction sum id_96
+repMsg:float64 45
+<<< reduction took 0.000113sec
+reqMsg: reduction sum id_96
+>>> reduction
+reduction sum id_96
+repMsg:float64 45
+<<< reduction took 6.2e-05sec
+reqMsg: linspace 1 10 10
+>>> linspace
+linspace 1 10 10 : 1 , id_97
+alloc time = 1.9e-05sec
+compute time = 3e-06sec
+aD = {0..9} 
+repMsg:created id_97 float64 10 1 (10) 8
+<<< linspace took 0.000149sec
+reqMsg: delete id_96
+>>> delete
+delete id_96
+deinit SymEntry
+repMsg:deleted id_96
+<<< delete took 8.1e-05sec
+reqMsg: reduction prod id_97
+>>> reduction
+reduction prod id_97
+repMsg:float64 3628800
+<<< reduction took 9.1e-05sec
+reqMsg: reduction prod id_97
+>>> reduction
+reduction prod id_97
+repMsg:float64 3628800
+<<< reduction took 6.8e-05sec
+reqMsg: reduction prod id_97
+>>> reduction
+reduction prod id_97
+repMsg:float64 3628800
+<<< reduction took 5.7e-05sec
+reqMsg: delete id_97
+>>> delete
+delete id_97
+deinit SymEntry
+repMsg:deleted id_97
+<<< delete took 0.000108sec
+reqMsg: arange 0 20 1
+>>> arange
+arange 0 20 1 : 20 , id_98
+alloc time = 1.9e-05sec
+compute time = 3e-06sec
+aD = {0..19} 
+repMsg:created id_98 int64 20 1 (20) 8
+<<< arange took 0.000148sec
+reqMsg: binopvs < id_98 int64 10
+>>> binopvs
+binopvs < id_98 int64 10 : id_99
+aD = {0..19} 
+repMsg:created id_99 bool 20 1 (20) 1
+<<< binopvs took 0.000117sec
+reqMsg: reduction sum id_99
+>>> reduction
+reduction sum id_99
+repMsg:int64 10
+<<< reduction took 6.8e-05sec
+reqMsg: reduction sum id_99
+>>> reduction
+reduction sum id_99
+repMsg:int64 10
+<<< reduction took 5.9e-05sec
+reqMsg: reduction prod id_99
+>>> reduction
+reduction prod id_99
+repMsg:int64 0
+<<< reduction took 9.2e-05sec
+reqMsg: reduction prod id_99
+>>> reduction
+reduction prod id_99
+repMsg:int64 0
+<<< reduction took 7.3e-05sec
+reqMsg: efunc cumsum id_99
+>>> efunc
+efunc cumsum id_99 : id_100
+aD = {0..19} 
+repMsg:created id_100 int64 20 1 (20) 8
+<<< efunc took 0.000193sec
+reqMsg: efunc cumprod id_99
+>>> efunc
+efunc cumprod id_99 : id_101
+aD = {0..19} 
+repMsg:created id_101 int64 20 1 (20) 8
+<<< efunc took 0.000232sec
+reqMsg: str id_99 1000
+>>> str
+str id_99 1000
+repMsg:[True True True True True True True True True True False False False False False False False False False False]
+<<< str took 0.000192sec
+reqMsg: str id_100 1000
+>>> str
+str id_100 1000
+repMsg:[1 2 3 4 5 6 7 8 9 10 10 10 10 10 10 10 10 10 10 10]
+<<< str took 0.000155sec
+reqMsg: str id_101 1000
+>>> str
+str id_101 1000
+repMsg:[1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0]
+<<< str took 0.000183sec
+reqMsg: delete id_101
+>>> delete
+delete id_101
+deinit SymEntry
+repMsg:deleted id_101
+<<< delete took 9.2e-05sec
+reqMsg: delete id_100
+>>> delete
+delete id_100
+deinit SymEntry
+repMsg:deleted id_100
+<<< delete took 7.2e-05sec
+reqMsg: binopvs < id_98 int64 5
+>>> binopvs
+binopvs < id_98 int64 5 : id_102
+aD = {0..19} 
+repMsg:created id_102 bool 20 1 (20) 1
+<<< binopvs took 0.000134sec
+reqMsg: delete id_99
+>>> delete
+delete id_99
+deinit SymEntry
+repMsg:deleted id_99
+<<< delete took 8.5e-05sec
+reqMsg: reduction sum id_102
+>>> reduction
+reduction sum id_102
+repMsg:int64 5
+<<< reduction took 8.5e-05sec
+reqMsg: reduction sum id_102
+>>> reduction
+reduction sum id_102
+repMsg:int64 5
+<<< reduction took 6.9e-05sec
+reqMsg: reduction prod id_102
+>>> reduction
+reduction prod id_102
+repMsg:int64 0
+<<< reduction took 6.1e-05sec
+reqMsg: reduction prod id_102
+>>> reduction
+reduction prod id_102
+repMsg:int64 0
+<<< reduction took 8.3e-05sec
+reqMsg: efunc cumsum id_102
+>>> efunc
+efunc cumsum id_102 : id_103
+aD = {0..19} 
+repMsg:created id_103 int64 20 1 (20) 8
+<<< efunc took 0.000157sec
+reqMsg: efunc cumprod id_102
+>>> efunc
+efunc cumprod id_102 : id_104
+aD = {0..19} 
+repMsg:created id_104 int64 20 1 (20) 8
+<<< efunc took 0.000145sec
+reqMsg: str id_102 1000
+>>> str
+str id_102 1000
+repMsg:[True True True True True False False False False False False False False False False False False False False False]
+<<< str took 0.000181sec
+reqMsg: str id_103 1000
+>>> str
+str id_103 1000
+repMsg:[1 2 3 4 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5]
+<<< str took 0.000176sec
+reqMsg: str id_104 1000
+>>> str
+str id_104 1000
+repMsg:[1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+<<< str took 0.000164sec
+reqMsg: delete id_104
+>>> delete
+delete id_104
+deinit SymEntry
+repMsg:deleted id_104
+<<< delete took 7.7e-05sec
+reqMsg: delete id_103
+>>> delete
+delete id_103
+deinit SymEntry
+repMsg:deleted id_103
+<<< delete took 9.2e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_105
+alloc time = 1.9e-05sec
+compute time = 5e-06sec
+aD = {0..9} 
+repMsg:created id_105 int64 10 1 (10) 8
+<<< arange took 0.000141sec
+reqMsg: delete id_98
+>>> delete
+delete id_98
+deinit SymEntry
+repMsg:deleted id_98
+<<< delete took 8.6e-05sec
+reqMsg: [slice] id_105 9 -1 -1
+>>> [slice]
+[slice] id_105 9 -1 -1 : 0..9 by -1 , id_106
+aD = {0..9} 
+repMsg:created id_106 int64 10 1 (10) 8
+<<< [slice] took 0.000165sec
+reqMsg: delete id_23
+>>> delete
+delete id_23
+deinit SymEntry
+repMsg:deleted id_23
+<<< delete took 9.1e-05sec
+reqMsg: [pdarray] id_105 id_106
+>>> [pdarray]
+[pdarray] id_105 id_106 : id_107
+aD = {0..9} 
+repMsg:created id_107 int64 10 1 (10) 8
+<<< [pdarray] took 0.000142sec
+reqMsg: str id_105 1000
+>>> str
+str id_105 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000109sec
+reqMsg: str id_106 1000
+>>> str
+str id_106 1000
+repMsg:[9 8 7 6 5 4 3 2 1 0]
+<<< str took 0.000118sec
+reqMsg: str id_107 1000
+>>> str
+str id_107 1000
+repMsg:[9 8 7 6 5 4 3 2 1 0]
+<<< str took 0.000124sec
+reqMsg: delete id_107
+>>> delete
+delete id_107
+deinit SymEntry
+repMsg:deleted id_107
+<<< delete took 7.1e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_108
+alloc time = 2.1e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_108 int64 10 1 (10) 8
+<<< arange took 0.000166sec
+reqMsg: delete id_105
+>>> delete
+delete id_105
+deinit SymEntry
+repMsg:deleted id_105
+<<< delete took 8.2e-05sec
+reqMsg: [slice] id_108 9 -1 -1
+>>> [slice]
+[slice] id_108 9 -1 -1 : 0..9 by -1 , id_109
+aD = {0..9} 
+repMsg:created id_109 int64 10 1 (10) 8
+<<< [slice] took 0.000146sec
+reqMsg: delete id_106
+>>> delete
+delete id_106
+deinit SymEntry
+repMsg:deleted id_106
+<<< delete took 7.6e-05sec
+reqMsg: [pdarray] id_108 id_109
+>>> [pdarray]
+[pdarray] id_108 id_109 : id_110
+aD = {0..9} 
+repMsg:created id_110 int64 10 1 (10) 8
+<<< [pdarray] took 0.00011sec
+reqMsg: str id_108 1000
+>>> str
+str id_108 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000111sec
+reqMsg: str id_109 1000
+>>> str
+str id_109 1000
+repMsg:[9 8 7 6 5 4 3 2 1 0]
+<<< str took 0.000126sec
+reqMsg: str id_110 1000
+>>> str
+str id_110 1000
+repMsg:[9 8 7 6 5 4 3 2 1 0]
+<<< str took 0.000128sec
+reqMsg: delete id_110
+>>> delete
+delete id_110
+deinit SymEntry
+repMsg:deleted id_110
+<<< delete took 9.3e-05sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_111
+alloc time = 2e-05sec
+compute time = 4.99999e-06sec
+aD = {0..9} 
+repMsg:created id_111 float64 10 1 (10) 8
+<<< linspace took 0.000148sec
+reqMsg: delete id_108
+>>> delete
+delete id_108
+deinit SymEntry
+repMsg:deleted id_108
+<<< delete took 8.4e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_112
+alloc time = 2.9e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_112 int64 10 1 (10) 8
+<<< arange took 0.000198sec
+reqMsg: delete id_109
+>>> delete
+delete id_109
+deinit SymEntry
+repMsg:deleted id_109
+<<< delete took 7.4e-05sec
+reqMsg: [slice] id_112 9 -1 -1
+>>> [slice]
+[slice] id_112 9 -1 -1 : 0..9 by -1 , id_113
+aD = {0..9} 
+repMsg:created id_113 int64 10 1 (10) 8
+<<< [slice] took 0.000112sec
+reqMsg: delete id_112
+>>> delete
+delete id_112
+deinit SymEntry
+repMsg:deleted id_112
+<<< delete took 8e-05sec
+reqMsg: [pdarray] id_111 id_113
+>>> [pdarray]
+[pdarray] id_111 id_113 : id_114
+aD = {0..9} 
+repMsg:created id_114 float64 10 1 (10) 8
+<<< [pdarray] took 0.000144sec
+reqMsg: str id_111 1000
+>>> str
+str id_111 1000
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00 5.000000e+00 6.000000e+00 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 0.000151sec
+reqMsg: str id_113 1000
+>>> str
+str id_113 1000
+repMsg:[9 8 7 6 5 4 3 2 1 0]
+<<< str took 0.000107sec
+reqMsg: str id_114 1000
+>>> str
+str id_114 1000
+repMsg:[9.000000e+00 8.000000e+00 7.000000e+00 6.000000e+00 5.000000e+00 4.000000e+00 3.000000e+00 2.000000e+00 1.000000e+00 0.000000e+00]
+<<< str took 0.000166sec
+reqMsg: delete id_114
+>>> delete
+delete id_114
+deinit SymEntry
+repMsg:deleted id_114
+<<< delete took 9.9e-05sec
+reqMsg: delete id_111
+>>> delete
+delete id_111
+deinit SymEntry
+repMsg:deleted id_111
+<<< delete took 6.5e-05sec
+reqMsg: delete id_113
+>>> delete
+delete id_113
+deinit SymEntry
+repMsg:deleted id_113
+<<< delete took 9.3e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_115
+alloc time = 2e-05sec
+compute time = 5e-06sec
+aD = {0..9} 
+repMsg:created id_115 int64 10 1 (10) 8
+<<< arange took 0.000158sec
+reqMsg: binopvs < id_115 int64 20
+>>> binopvs
+binopvs < id_115 int64 20 : id_116
+aD = {0..9} 
+repMsg:created id_116 bool 10 1 (10) 1
+<<< binopvs took 9.9e-05sec
+reqMsg: delete id_102
+>>> delete
+delete id_102
+deinit SymEntry
+repMsg:deleted id_102
+<<< delete took 7.4e-05sec
+reqMsg: [pdarray] id_115 id_116
+>>> [pdarray]
+[pdarray] id_115 id_116 : id_117
+pop = 10last-scan = 10
+aD = {0..9} 
+repMsg:created id_117 int64 10 1 (10) 8
+<<< [pdarray] took 0.000171sec
+reqMsg: str id_115 1000
+>>> str
+str id_115 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000154sec
+reqMsg: str id_116 1000
+>>> str
+str id_116 1000
+repMsg:[True True True True True True True True True True]
+<<< str took 0.00011sec
+reqMsg: str id_117 1000
+>>> str
+str id_117 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000138sec
+reqMsg: delete id_117
+>>> delete
+delete id_117
+deinit SymEntry
+repMsg:deleted id_117
+<<< delete took 8.5e-05sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_118
+alloc time = 1.8e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_118 int64 10 1 (10) 8
+<<< arange took 0.000173sec
+reqMsg: delete id_115
+>>> delete
+delete id_115
+deinit SymEntry
+repMsg:deleted id_115
+<<< delete took 8.6e-05sec
+reqMsg: binopvs < id_118 int64 5
+>>> binopvs
+binopvs < id_118 int64 5 : id_119
+aD = {0..9} 
+repMsg:created id_119 bool 10 1 (10) 1
+<<< binopvs took 0.00013sec
+reqMsg: delete id_116
+>>> delete
+delete id_116
+deinit SymEntry
+repMsg:deleted id_116
+<<< delete took 8.5e-05sec
+reqMsg: [pdarray] id_118 id_119
+>>> [pdarray]
+[pdarray] id_118 id_119 : id_120
+pop = 5last-scan = 5
+aD = {0..4} 
+repMsg:created id_120 int64 5 1 (5) 8
+<<< [pdarray] took 0.000301sec
+reqMsg: str id_118 1000
+>>> str
+str id_118 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.000113sec
+reqMsg: str id_119 1000
+>>> str
+str id_119 1000
+repMsg:[True True True True True False False False False False]
+<<< str took 0.00014sec
+reqMsg: str id_120 1000
+>>> str
+str id_120 1000
+repMsg:[0 1 2 3 4]
+<<< str took 0.000105sec
+reqMsg: delete id_120
+>>> delete
+delete id_120
+deinit SymEntry
+repMsg:deleted id_120
+<<< delete took 0.000111sec
+reqMsg: arange 0 10 1
+>>> arange
+arange 0 10 1 : 10 , id_121
+alloc time = 1.9e-05sec
+compute time = 4e-06sec
+aD = {0..9} 
+repMsg:created id_121 int64 10 1 (10) 8
+<<< arange took 0.00014sec
+reqMsg: delete id_118
+>>> delete
+delete id_118
+deinit SymEntry
+repMsg:deleted id_118
+<<< delete took 7.6e-05sec
+reqMsg: binopvs < id_121 int64 0
+>>> binopvs
+binopvs < id_121 int64 0 : id_122
+aD = {0..9} 
+repMsg:created id_122 bool 10 1 (10) 1
+<<< binopvs took 0.000147sec
+reqMsg: delete id_119
+>>> delete
+delete id_119
+deinit SymEntry
+repMsg:deleted id_119
+<<< delete took 0.000106sec
+reqMsg: [pdarray] id_121 id_122
+>>> [pdarray]
+[pdarray] id_121 id_122 : id_123
+pop = 0last-scan = 0
+aD = {0..-1} 
+repMsg:created id_123 int64 0 1 (0) 8
+<<< [pdarray] took 0.000178sec
+reqMsg: str id_121 1000
+>>> str
+str id_121 1000
+repMsg:[0 1 2 3 4 5 6 7 8 9]
+<<< str took 0.0001sec
+reqMsg: str id_122 1000
+>>> str
+str id_122 1000
+repMsg:[False False False False False False False False False False]
+<<< str took 0.000153sec
+reqMsg: str id_123 1000
+>>> str
+str id_123 1000
+repMsg:[]
+<<< str took 5.4e-05sec
+reqMsg: delete id_123
+>>> delete
+delete id_123
+deinit SymEntry
+repMsg:deleted id_123
+<<< delete took 7.5e-05sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_124
+alloc time = 3.5e-05sec
+compute time = 4.99999e-06sec
+aD = {0..9} 
+repMsg:created id_124 float64 10 1 (10) 8
+<<< linspace took 0.000179sec
+reqMsg: delete id_121
+>>> delete
+delete id_121
+deinit SymEntry
+repMsg:deleted id_121
+<<< delete took 0.000115sec
+reqMsg: binopvs < id_124 int64 5
+>>> binopvs
+binopvs < id_124 int64 5 : id_125
+aD = {0..9} 
+repMsg:created id_125 bool 10 1 (10) 1
+<<< binopvs took 0.000124sec
+reqMsg: delete id_122
+>>> delete
+delete id_122
+deinit SymEntry
+repMsg:deleted id_122
+<<< delete took 8.3e-05sec
+reqMsg: [pdarray] id_124 id_125
+>>> [pdarray]
+[pdarray] id_124 id_125 : id_126
+pop = 5last-scan = 5
+aD = {0..4} 
+repMsg:created id_126 float64 5 1 (5) 8
+<<< [pdarray] took 0.000193sec
+reqMsg: str id_124 1000
+>>> str
+str id_124 1000
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00 5.000000e+00 6.000000e+00 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 0.000181sec
+reqMsg: str id_125 1000
+>>> str
+str id_125 1000
+repMsg:[True True True True True False False False False False]
+<<< str took 0.000168sec
+reqMsg: str id_126 1000
+>>> str
+str id_126 1000
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00]
+<<< str took 0.000116sec
+reqMsg: delete id_126
+>>> delete
+delete id_126
+deinit SymEntry
+repMsg:deleted id_126
+<<< delete took 9.7e-05sec
+reqMsg: linspace 0 8388607 8388608
+>>> linspace
+linspace 0 8.38861e+06 8388608 : 1 , id_127
+alloc time = 0.019232sec
+compute time = 0.00495sec
+aD = {0..8388607} 
+repMsg:created id_127 float64 8388608 1 (8388608) 8
+<<< linspace took 0.049197sec
+reqMsg: linspace 0 8388607 8388608
+>>> linspace
+linspace 0 8.38861e+06 8388608 : 1 , id_128
+alloc time = 0.01978sec
+compute time = 0.004894sec
+aD = {0..8388607} 
+repMsg:created id_128 float64 8388608 1 (8388608) 8
+<<< linspace took 0.054539sec
+reqMsg: binopvv + id_127 id_128
+>>> binopvv
+binopvv + id_127 id_128 : id_129
+aD = {0..8388607} 
+repMsg:created id_129 float64 8388608 1 (8388608) 8
+<<< binopvv took 0.019948sec
+reqMsg: info id_129
+>>> info
+info id_129
+repMsg:name:"id_129" dtype:"float64" size:8388608 ndim:1 shape:(8388608) itemsize:8
+
+<<< info took 8.3e-05sec
+reqMsg: str id_129 1000
+>>> str
+str id_129 1000
+repMsg:[0.000000e+00 2.000000e+00 4.000000e+00 ... 1.677721e+07 1.677721e+07 1.677721e+07]
+<<< str took 0.000123sec
+reqMsg: linspace 0 9 10
+>>> linspace
+linspace 0 9 10 : 1 , id_130
+alloc time = 2.7e-05sec
+compute time = 1.1e-05sec
+aD = {0..9} 
+repMsg:created id_130 float64 10 1 (10) 8
+<<< linspace took 0.000258sec
+reqMsg: delete id_124
+>>> delete
+delete id_124
+deinit SymEntry
+repMsg:deleted id_124
+<<< delete took 9.5e-05sec
+reqMsg: binopvs < id_130 int64 5
+>>> binopvs
+binopvs < id_130 int64 5 : id_131
+aD = {0..9} 
+repMsg:created id_131 bool 10 1 (10) 1
+<<< binopvs took 0.000109sec
+reqMsg: delete id_125
+>>> delete
+delete id_125
+deinit SymEntry
+repMsg:deleted id_125
+<<< delete took 7.5e-05sec
+reqMsg: str id_130 0
+>>> str
+str id_130 0
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 ... 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 8.5e-05sec
+reqMsg: str id_131 0
+>>> str
+str id_131 0
+repMsg:[True True True ... False False False]
+<<< str took 8.8e-05sec
+reqMsg: [pdarray] id_130 id_131
+>>> [pdarray]
+[pdarray] id_130 id_131 : id_132
+pop = 5last-scan = 5
+aD = {0..4} 
+repMsg:created id_132 float64 5 1 (5) 8
+<<< [pdarray] took 0.000243sec
+reqMsg: str id_132 0
+>>> str
+str id_132 0
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 3.000000e+00 4.000000e+00]
+<<< str took 0.00011sec
+reqMsg: delete id_132
+>>> delete
+delete id_132
+deinit SymEntry
+repMsg:deleted id_132
+<<< delete took 7.5e-05sec
+reqMsg: str id_130 0
+>>> str
+str id_130 0
+repMsg:[0.000000e+00 1.000000e+00 2.000000e+00 ... 7.000000e+00 8.000000e+00 9.000000e+00]
+<<< str took 6.5e-05sec
+reqMsg: delete id_130
+>>> delete
+delete id_130
+deinit SymEntry
+repMsg:deleted id_130
+<<< delete took 7.3e-05sec
+reqMsg: delete id_131
+>>> delete
+delete id_131
+deinit SymEntry
+repMsg:deleted id_131
+<<< delete took 9.4e-05sec
+reqMsg: create int64 10
+>>> create
+create int64 10 : id_133
+aD = {0..9} 
+repMsg:created id_133 int64 10 1 (10) 8
+<<< create took 0.000115sec
+reqMsg: set id_133 int64 1
+>>> set
+set id_133 to 1
+repMsg:set id_133 to 1
+<<< set took 7.8e-05sec
+reqMsg: binopvs | id_133 int64 255
+>>> binopvs
+binopvs | id_133 int64 255 : id_134
+aD = {0..9} 
+repMsg:created id_134 int64 10 1 (10) 8
+<<< binopvs took 0.000172sec
+reqMsg: binopvv ^ id_133 id_134
+>>> binopvv
+binopvv ^ id_133 id_134 : id_135
+aD = {0..9} 
+repMsg:created id_135 int64 10 1 (10) 8
+<<< binopvv took 0.000165sec
+reqMsg: binopvv >> id_134 id_133
+>>> binopvv
+binopvv >> id_134 id_133 : id_136
+aD = {0..9} 
+repMsg:created id_136 int64 10 1 (10) 8
+<<< binopvv took 0.000198sec
+reqMsg: binopvs << id_134 int64 1
+>>> binopvs
+binopvs << id_134 int64 1 : id_137
+aD = {0..9} 
+repMsg:created id_137 int64 10 1 (10) 8
+<<< binopvs took 0.000118sec
+reqMsg: binopvs | id_137 int64 1
+>>> binopvs
+binopvs | id_137 int64 1 : id_138
+aD = {0..9} 
+repMsg:created id_138 int64 10 1 (10) 8
+<<< binopvs took 0.000105sec
+reqMsg: delete id_137
+>>> delete
+delete id_137
+deinit SymEntry
+repMsg:deleted id_137
+<<< delete took 6.8e-05sec
+reqMsg: binopsv & int64 15 id_134
+>>> binopsv
+binopsv & int64 15 id_134 : id_139
+aD = {0..9} 
+repMsg:created id_139 int64 10 1 (10) 8
+<<< binopsv took 0.000185sec
+reqMsg: binopsv ^ int64 170 id_134
+>>> binopsv
+binopsv ^ int64 170 id_134 : id_140
+aD = {0..9} 
+repMsg:created id_140 int64 10 1 (10) 8
+<<< binopsv took 0.000113sec
+reqMsg: binopvs ^ id_134 int64 255
+>>> binopvs
+binopvs ^ id_134 int64 255 : id_141
+aD = {0..9} 
+repMsg:created id_141 int64 10 1 (10) 8
+<<< binopvs took 0.000106sec
+reqMsg: str id_133 0
+>>> str
+str id_133 0
+repMsg:[1 1 1 ... 1 1 1]
+<<< str took 7.5e-05sec
+reqMsg: str id_134 0
+>>> str
+str id_134 0
+repMsg:[255 255 255 ... 255 255 255]
+<<< str took 8.2e-05sec
+reqMsg: str id_135 0
+>>> str
+str id_135 0
+repMsg:[254 254 254 ... 254 254 254]
+<<< str took 5.8e-05sec
+reqMsg: str id_136 0
+>>> str
+str id_136 0
+repMsg:[127 127 127 ... 127 127 127]
+<<< str took 6.6e-05sec
+reqMsg: str id_138 0
+>>> str
+str id_138 0
+repMsg:[511 511 511 ... 511 511 511]
+<<< str took 6.3e-05sec
+reqMsg: str id_139 0
+>>> str
+str id_139 0
+repMsg:[15 15 15 ... 15 15 15]
+<<< str took 6e-05sec
+reqMsg: str id_140 0
+>>> str
+str id_140 0
+repMsg:[85 85 85 ... 85 85 85]
+<<< str took 9.3e-05sec
+reqMsg: str id_141 0
+>>> str
+str id_141 0
+repMsg:[0 0 0 ... 0 0 0]
+<<< str took 5.4e-05sec
+reqMsg: delete id_141
+>>> delete
+delete id_141
+deinit SymEntry
+repMsg:deleted id_141
+<<< delete took 9.5e-05sec
+reqMsg: delete id_140
+>>> delete
+delete id_140
+deinit SymEntry
+repMsg:deleted id_140
+<<< delete took 7.1e-05sec
+reqMsg: delete id_139
+>>> delete
+delete id_139
+deinit SymEntry
+repMsg:deleted id_139
+<<< delete took 9.7e-05sec
+reqMsg: delete id_138
+>>> delete
+delete id_138
+deinit SymEntry
+repMsg:deleted id_138
+<<< delete took 8.3e-05sec
+reqMsg: delete id_136
+>>> delete
+delete id_136
+deinit SymEntry
+repMsg:deleted id_136
+<<< delete took 6.6e-05sec
+reqMsg: delete id_135
+>>> delete
+delete id_135
+deinit SymEntry
+repMsg:deleted id_135
+<<< delete took 6.3e-05sec
+reqMsg: binopvs * id_133 int64 -1
+>>> binopvs
+binopvs * id_133 int64 -1 : id_142
+aD = {0..9} 
+repMsg:created id_142 int64 10 1 (10) 8
+<<< binopvs took 0.000168sec
+reqMsg: binopvs ^ id_133 int64 -1
+>>> binopvs
+binopvs ^ id_133 int64 -1 : id_143
+aD = {0..9} 
+repMsg:created id_143 int64 10 1 (10) 8
+<<< binopvs took 0.000126sec
+reqMsg: binopvs ^ id_143 int64 -1
+>>> binopvs
+binopvs ^ id_143 int64 -1 : id_144
+aD = {0..9} 
+repMsg:created id_144 int64 10 1 (10) 8
+<<< binopvs took 0.000124sec
+reqMsg: delete id_143
+>>> delete
+delete id_143
+deinit SymEntry
+repMsg:deleted id_143
+<<< delete took 6.1e-05sec
+reqMsg: str id_142 0
+>>> str
+str id_142 0
+repMsg:[-1 -1 -1 ... -1 -1 -1]
+<<< str took 8.2e-05sec
+reqMsg: str id_144 0
+>>> str
+str id_144 0
+repMsg:[1 1 1 ... 1 1 1]
+<<< str took 5.4e-05sec
+reqMsg: delete id_144
+>>> delete
+delete id_144
+deinit SymEntry
+repMsg:deleted id_144
+<<< delete took 8.9e-05sec
+reqMsg: delete id_142
+>>> delete
+delete id_142
+deinit SymEntry
+repMsg:deleted id_142
+<<< delete took 8.9e-05sec
+reqMsg: create int64 10
+>>> create
+create int64 10 : id_145
+aD = {0..9} 
+repMsg:created id_145 int64 10 1 (10) 8
+<<< create took 0.000117sec
+reqMsg: set id_145 int64 1
+>>> set
+set id_145 to 1
+repMsg:set id_145 to 1
+<<< set took 7e-05sec
+reqMsg: delete id_133
+>>> delete
+delete id_133
+deinit SymEntry
+repMsg:deleted id_133
+<<< delete took 6.7e-05sec
+reqMsg: create int64 10
+>>> create
+create int64 10 : id_146
+aD = {0..9} 
+repMsg:created id_146 int64 10 1 (10) 8
+<<< create took 9.3e-05sec
+reqMsg: binopvs ^ id_146 int64 -1
+>>> binopvs
+binopvs ^ id_146 int64 -1 : id_147
+aD = {0..9} 
+repMsg:created id_147 int64 10 1 (10) 8
+<<< binopvs took 0.000142sec
+reqMsg: delete id_146
+>>> delete
+delete id_146
+deinit SymEntry
+repMsg:deleted id_146
+<<< delete took 8.8e-05sec
+reqMsg: delete id_134
+>>> delete
+delete id_134
+deinit SymEntry
+repMsg:deleted id_134
+<<< delete took 6.8e-05sec
+reqMsg: binopvs ^ id_145 int64 -1
+>>> binopvs
+binopvs ^ id_145 int64 -1 : id_148
+aD = {0..9} 
+repMsg:created id_148 int64 10 1 (10) 8
+<<< binopvs took 0.000116sec
+reqMsg: binopvs * id_147 int64 -1
+>>> binopvs
+binopvs * id_147 int64 -1 : id_149
+aD = {0..9} 
+repMsg:created id_149 int64 10 1 (10) 8
+<<< binopvs took 0.000151sec
+reqMsg: str id_148 0
+>>> str
+str id_148 0
+repMsg:[-2 -2 -2 ... -2 -2 -2]
+<<< str took 6.1e-05sec
+reqMsg: str id_149 0
+>>> str
+str id_149 0
+repMsg:[1 1 1 ... 1 1 1]
+<<< str took 6.2e-05sec
+reqMsg: delete id_149
+>>> delete
+delete id_149
+deinit SymEntry
+repMsg:deleted id_149
+<<< delete took 6.7e-05sec
+reqMsg: delete id_148
+>>> delete
+delete id_148
+deinit SymEntry
+repMsg:deleted id_148
+<<< delete took 0.000118sec
+reqMsg: delete id_145
+>>> delete
+delete id_145
+deinit SymEntry
+repMsg:deleted id_145
+<<< delete took 0.000102sec
+reqMsg: delete id_147
+>>> delete
+delete id_147
+deinit SymEntry
+repMsg:deleted id_147
+<<< delete took 7.2e-05sec
+reqMsg: shutdown
+requests = 479 responseCount = 479
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
+deinit SymEntry
