@@ -1,6 +1,11 @@
 # Arkouda (αρκούδα): NumPy-like arrays at massive scale backed by Chapel.
 ## _NOTE_: Arkouda is under the MIT license.
 
+## Gitter channels
+[Arkouda Gitter channel](https://gitter.im/ArkoudaProject/community)
+
+[Chapel Gitter channel](https://gitter.im/chapel-lang/chapel)
+
 ## Talks on Arkouda
 [Mike Merrill's CHIUW 2019 talk](https://chapel-lang.org/CHIUW/2019/Merrill.pdf)
 
@@ -52,16 +57,17 @@ interactive session.
  * requires zeromq version >= 4.2.5, tested with 4.2.5 and 4.3.1
  * requires python 3.6 or greater
  * requires numpy
- * requires sphinx-doc to build python documentation
+ * requires Sphinx and sphinx-argparse to build python documentation
  
 ### It should be simple to get things going on a mac
 ```bash
 brew install chapel
-# you can also install these other packages with brew
+# you can also install python3 with brew
 brew install python3
-brew install zeromq
-# and pip install the numpy packages
-pip3 install numpy
+# the arkouda python client is available via pip
+# pip will automatically install python dependencies (zmq and numpy)
+# however, pip will not build the arkouda server (see below)
+pip3 install arkouda
 # these packages are nice but not a requirement
 pip3 install pandas
 pip3 install jupyter
@@ -70,16 +76,13 @@ pip3 install jupyter
 ### If you need to build Chapel from scratch here is what I use
 ```bash
 # on my mac build chapel in my home directory with these settings...
-# I don't understand them all but they seem to work
 export CHPL_HOME=~/chapel/chapel-1.20.0
 source $CHPL_HOME/util/setchplenv.bash
 export CHPL_COMM=gasnet
 export CHPL_COMM_SUBSTRATE=smp
-export CHPL_GASNET_CFG_OPTIONS=--disable-ibv
 export CHPL_TARGET_CPU=native
-export GASNET_SPAWNFN=L
-export GASNET_ROUTE_OUTPUT=0
 export GASNET_QUIET=Y
+<<<<<<< HEAD
 export GASNET_MASTERIP=127.0.0.1
 # Set these to help with oversubscription...
 export QT_AFFINITY=no
@@ -88,16 +91,19 @@ export CHPL_QTHREAD_ENABLE_OVERSUBSCRIPTION=1
 export CHPL_LLVM=llvm #the letters ll, not the numbers 11, l and 1 look similar in GitHub README.md
 =======
 >>>>>>> bac26cb8bce5b22a67872c723c6511a973a8ea29
+=======
+export CHPL_RT_OVERSUBSCRIBED=yes
+>>>>>>> a99a38e525f591615043c5e0db184d5a1943cfb2
 cd $CHPL_HOME
 make
 ```
 
 ## Building Arkouda
 
-Simply run `make` to build `arkouda_server.chpl`.
+Download, clone, or fork the [arkouda repo](https://github.com/mhmerrill/arkouda). Further instructions assume that the current directory is the top-level directory of the repo.
 
 If your environment requires non-system paths to find dependencies (e.g.,
-[Anaconda]), append each path to a new file `Makefile.paths` like so:
+if using the ZMQ and HDF5 bundled with [Anaconda]), append each path to a new file `Makefile.paths` like so:
 
 ```make
 # Makefile.paths
@@ -110,12 +116,14 @@ $(eval $(call add-path,/home/user/anaconda3/envs/arkouda))
 The `chpl` compiler will be executed with `-I`, `-L` and an `-rpath` to each
 path.
 
+Now, simply run `make` to build the `arkouda_server` executable.
+
 [Anaconda]: https://www.anaconda.com/distribution/
 
 ## Building the Arkouda documentation
-Make sure you installed the sphinx-doc package
+Make sure you installed the Sphinx and sphinx-argparse packages (e.g. `pip3 install -U Sphinx sphinx-argparse`)
 
-Run `make doc`, this build both the Arkouda python documentation and the Chapel server documentation
+Run `make doc` to build both the Arkouda python documentation and the Chapel server documentation
 
 The output is currently in subdirectories of the `arkouda/doc`
 ```
@@ -123,42 +131,35 @@ arkouda/doc/python # python frontend documentation
 arkouda/doc/server # chapel backend server documentation 
 ```
 
+To view the documentation for the Arkouda python client, point your browser to `file:///path/to/arkouda/doc/python/index.html`, substituting the appropriate path for your configuration.
+
 ## Running arkouda_server
 
- * startup the arkouda_server
- * defaults to port 5555
+The command-line invocation depends on whether you built a single-locale version (with `CHPL_COMM=none`) or multi-locale version (with `CHPL_COMM` set).
+
+Single-locale startup:
+
 ```bash
-# if you buile a single-locale version
 ./arkouda_server
-# if you built a multi-locale version
+```
+
+Multi-locale startup (user selects the number of locales):
+
+```bash
 ./arkouda_server -nl 1
 ```
- * config var on the commandline
- * ```--v=true/false``` to turn on/off verbose messages from server
- * ```--ServerPort=5555```
- * or you could run it this way if you don't want as many messages
-and a different port to be used
+
+By default, the server listens on port `5555` and prints verbose output. These options can be changed with command-line flags `--ServerPort=1234` and `--v=false`.
+
+## Testing arkouda_server
+
+There is a small test program that connects to a running arkouda_server, runs a few computations, and shuts down the server. To run it, open a new terminal window in the arkouda directory and run
+
 ```bash
-./arkouda_server -nl 1 --ServerPort=5555 --v=false
+python3 tests/check.py localhost 5555
 ```
- * in the same directory in a different terminal window
- * run the ak_test.py python3 program
- * this program just does a couple things and calls shutdown for the server
- * edit the server and port in the script to something other than the
-default if you ran the server on a different server or port
-```bash
-./ak_test.py
-```
-or
-```bash
-python3 ak_test.py
-```
-or
-```bash
-./ak_test.py localhost 5555
-```
- * This also works fine from a jupyter notebook
- * there is an included Jupyter notebook called test_arkouda.ipynb
+
+Substitute the correct hostname and port if you used a different configuration.
 
 ## Contributing to Arkouda
 
