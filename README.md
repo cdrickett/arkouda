@@ -1,6 +1,11 @@
 # Arkouda (αρκούδα): NumPy-like arrays at massive scale backed by Chapel.
 ## _NOTE_: Arkouda is under the MIT license.
 
+## Gitter channels
+[Arkouda Gitter channel](https://gitter.im/ArkoudaProject/community)
+
+[Chapel Gitter channel](https://gitter.im/chapel-lang/chapel)
+
 ## Talks on Arkouda
 [Mike Merrill's CHIUW 2019 talk](https://chapel-lang.org/CHIUW/2019/Merrill.pdf)
 
@@ -40,7 +45,7 @@ interactive session.
  * requires zeromq version >= 4.2.5, tested with 4.2.5 and 4.3.1
  * requires python 3.6 or greater
  * requires numpy
- * requires sphinx-doc to build python documentation
+ * requires Sphinx and sphinx-argparse to build python documentation
  
 ### It should be simple to get things going on a mac
 ```bash
@@ -59,16 +64,13 @@ pip3 install jupyter
 ### If you need to build Chapel from scratch here is what I use
 ```bash
 # on my mac build chapel in my home directory with these settings...
-# I don't understand them all but they seem to work
 export CHPL_HOME=~/chapel/chapel-1.20.0
 source $CHPL_HOME/util/setchplenv.bash
 export CHPL_COMM=gasnet
 export CHPL_COMM_SUBSTRATE=smp
-export CHPL_GASNET_CFG_OPTIONS=--disable-ibv
 export CHPL_TARGET_CPU=native
-export GASNET_SPAWNFN=L
-export GASNET_ROUTE_OUTPUT=0
 export GASNET_QUIET=Y
+<<<<<<< HEAD
 export GASNET_MASTERIP=127.0.0.1
 # Set these to help with oversubscription...
 export QT_AFFINITY=no
@@ -77,6 +79,9 @@ export CHPL_QTHREAD_ENABLE_OVERSUBSCRIPTION=1
 export CHPL_LLVM=llvm #the letters ll, not the numbers 11, l and 1 look similar in GitHub README.md
 =======
 >>>>>>> bac26cb8bce5b22a67872c723c6511a973a8ea29
+=======
+export CHPL_RT_OVERSUBSCRIBED=yes
+>>>>>>> a99a38e525f591615043c5e0db184d5a1943cfb2
 cd $CHPL_HOME
 make
 ```
@@ -104,7 +109,7 @@ Now, simply run `make` to build the `arkouda_server` executable.
 [Anaconda]: https://www.anaconda.com/distribution/
 
 ## Building the Arkouda documentation
-Make sure you installed the sphinx-doc package (e.g. `pip3 install -U Sphinx`)
+Make sure you installed the Sphinx and sphinx-argparse packages (e.g. `pip3 install -U Sphinx sphinx-argparse`)
 
 Run `make doc` to build both the Arkouda python documentation and the Chapel server documentation
 
